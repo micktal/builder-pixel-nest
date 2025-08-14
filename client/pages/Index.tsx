@@ -34,7 +34,7 @@ export default function Index() {
     },
     {
       icon: Zap,
-      title: "AI-Powered",
+      title: "Les facteurs internes",
       description: "Smart content recommendations and personalized learning paths"
     },
     {
