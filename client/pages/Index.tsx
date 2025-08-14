@@ -44,7 +44,7 @@ export default function Index() {
     },
     {
       icon: Headphones,
-      title: "24/7 Support",
+      title: "Les signaux d'alerte",
       description: "Round-the-clock technical support and learning assistance"
     }
   ];
