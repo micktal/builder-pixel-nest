@@ -40,7 +40,7 @@ export default function Index() {
     {
       icon: Globe,
       title: "Les réactions physiologiques",
-      description: "Multi-language support and accessibility features for all learners"
+      description: "Lorsqu'une situation est perçue comme stressante, le cerveau déclenche la sécrétion d'hormones comme l'adrénaline et le cortisol. Ces substances augmentent la fréquence cardiaque, la tension artérielle et mobilisent les réserves d'énergie. Si cette activation perdure, elle devient nocive."
     },
     {
       icon: Headphones,
