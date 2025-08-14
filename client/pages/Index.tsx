@@ -71,41 +71,6 @@ export default function Index() {
     }
   ];
 
-  const courses = [
-    {
-      title: "Advanced React Development",
-      instructor: "Sarah Johnson",
-      duration: "8 weeks",
-      students: 2341,
-      rating: 4.9,
-      price: "$199",
-      image: "/placeholder.svg",
-      level: "Advanced",
-      category: "Web Development"
-    },
-    {
-      title: "UX Design Fundamentals",
-      instructor: "Mike Chen",
-      duration: "6 weeks", 
-      students: 1876,
-      rating: 4.8,
-      price: "$149",
-      image: "/placeholder.svg",
-      level: "Beginner",
-      category: "Design"
-    },
-    {
-      title: "Data Science with Python",
-      instructor: "Dr. Emily Davis",
-      duration: "12 weeks",
-      students: 3205,
-      rating: 4.9,
-      price: "$299",
-      image: "/placeholder.svg",
-      level: "Intermediate",
-      category: "Data Science"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
