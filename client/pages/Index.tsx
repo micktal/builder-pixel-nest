@@ -158,6 +158,75 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Flashcards Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-purple-500/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Flashcards — Aigu vs Chronique
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Stress Aigu Card */}
+            <Card className="bg-white border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
+              <CardHeader className="text-center pb-4">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="w-10 h-10 text-green-600" />
+                </div>
+                <CardTitle className="text-2xl font-bold text-green-700">Stress Aigu</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-green-800 mb-2">Caractéristiques :</h3>
+                  <ul className="text-green-700 text-sm space-y-1 text-left">
+                    <li>• Court terme et ponctuel</li>
+                    <li>• Réaction normale et adaptative</li>
+                    <li>• Mobilise les ressources</li>
+                    <li>• Améliore les performances</li>
+                  </ul>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-green-800 mb-2">Exemples :</h3>
+                  <p className="text-green-700 text-sm text-left">
+                    Présentation importante, entretien d'embauche, gestion d'urgence,
+                    examen médical, échéance serrée
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Stress Chronique Card */}
+            <Card className="bg-white border-2 border-red-200 hover:border-red-400 transition-all duration-300 hover:shadow-xl">
+              <CardHeader className="text-center pb-4">
+                <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <AlertCircle className="w-10 h-10 text-red-600" />
+                </div>
+                <CardTitle className="text-2xl font-bold text-red-700">Stress Chronique</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <div className="bg-red-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-red-800 mb-2">Caractéristiques :</h3>
+                  <ul className="text-red-700 text-sm space-y-1 text-left">
+                    <li>• Long terme et persistant</li>
+                    <li>• Épuise les ressources</li>
+                    <li>• Altère la santé physique et mentale</li>
+                    <li>• Diminue les performances</li>
+                  </ul>
+                </div>
+                <div className="bg-red-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-red-800 mb-2">Conséquences :</h3>
+                  <p className="text-red-700 text-sm text-left">
+                    Burnout, troubles du sommeil, anxiété, dépression,
+                    problèmes cardiovasculaires, affaiblissement immunitaire
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Courses */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
