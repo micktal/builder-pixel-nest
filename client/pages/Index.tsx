@@ -85,16 +85,6 @@ export default function Index() {
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Le stress est un signal, pas une condamnation. Apprenez à l'écouter avant qu'il ne crie.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="text-lg px-8 py-4">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-                <Play className="mr-2 w-5 h-5" />
-                Watch Demo
-              </Button>
-            </div>
           </div>
         </div>
       </section>
