@@ -17,7 +17,12 @@ import {
   AlertCircle,
   Check,
   X,
-  RotateCcw
+  RotateCcw,
+  Activity,
+  Heart,
+  RefreshCw,
+  TrendingDown,
+  AlertTriangle
 } from "lucide-react";
 
 export default function Index() {
