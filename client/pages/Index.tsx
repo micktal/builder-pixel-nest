@@ -151,6 +151,9 @@ export default function Index() {
               Ce qui compte, ce n'est pas ce qui vous arrive, mais comment vous y répondez
             </h2>
           </div>
+
+          {/* Inline DidYouKnow after features heading */}
+          <DidYouKnow mode="inline" />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
