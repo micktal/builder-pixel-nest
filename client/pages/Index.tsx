@@ -25,7 +25,7 @@ export default function Index() {
     {
       icon: Users,
       title: "Stress aigu vs stress chronique",
-      description: "Connect learners through discussions, group projects, and peer reviews"
+      description: "On distingue le stress aigu, ponctuel et souvent bénéfique (présentation importante, gestion d'une urgence), et le stress chronique, prolongé et délétère, qui épuise l'organisme et altère la santé mentale et physique."
     },
     {
       icon: Award,
