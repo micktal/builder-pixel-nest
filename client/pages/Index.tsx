@@ -179,6 +179,17 @@ export default function Index() {
                   <CardDescription className="text-gray-600 leading-relaxed">
                     {feature.description}
                   </CardDescription>
+                  {/* Add contextual fact trigger for specific features */}
+                  {index === 4 && ( // Les réactions physiologiques card
+                    <div className="mt-4">
+                      <FactTrigger
+                        text="En savoir plus sur les effets physiologiques"
+                        factIndex={1}
+                        variant="text"
+                        size="sm"
+                      />
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
