@@ -14,7 +14,10 @@ import {
   Star,
   ArrowRight,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Check,
+  X,
+  RotateCcw
 } from "lucide-react";
 
 export default function Index() {
