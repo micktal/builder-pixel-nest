@@ -141,6 +141,14 @@ export default function Index() {
               de réponses physiologiques, cognitives et comportementales que notre organisme met en place
               lorsqu'il perçoit une situation comme exigeante ou menaçante.
             </p>
+
+            {/* Contextual fact trigger */}
+            <div className="flex justify-center mt-6">
+              <FactTrigger
+                text="💡 Découvrez un fait surprenant sur le stress"
+                factIndex={0}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -787,7 +795,7 @@ function MicroCasesSection() {
         {completed && (
           <Card className="mb-8 bg-gradient-to-r from-primary/10 to-purple-500/10 border-primary/20">
             <CardContent className="text-center py-8">
-              <div className="text-4xl mb-4">���</div>
+              <div className="text-4xl mb-4">🏆</div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Micro-cas terminés !
               </h3>
