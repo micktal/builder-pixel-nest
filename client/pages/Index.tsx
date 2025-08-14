@@ -35,7 +35,7 @@ export default function Index() {
     {
       icon: Zap,
       title: "Les facteurs internes",
-      description: "Smart content recommendations and personalized learning paths"
+      description: "Nos pensées, croyances et traits de personnalité jouent un rôle important. Le perfectionnisme, la peur de l'erreur, la faible tolérance à l'incertitude ou encore une faible perception de contrôle peuvent amplifier la réaction de stress, même face à des situations relativement neutres."
     },
     {
       icon: Globe,
