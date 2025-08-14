@@ -73,12 +73,14 @@ interface DidYouKnowProps {
   onClose?: () => void;
 }
 
-export default function DidYouKnow({ 
-  mode = 'sidebar', 
+export default function DidYouKnow({
+  mode = 'sidebar',
   trigger = 'auto',
-  autoInterval = 8000 
+  autoInterval = 8000,
+  initialFactIndex = 0,
+  onClose
 }: DidYouKnowProps) {
-  const [currentFactIndex, setCurrentFactIndex] = useState(0);
+  const [currentFactIndex, setCurrentFactIndex] = useState(initialFactIndex);
   const [isVisible, setIsVisible] = useState(mode === 'inline');
   const [isExpanded, setIsExpanded] = useState(false);
 
