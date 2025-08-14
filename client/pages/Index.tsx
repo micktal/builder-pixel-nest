@@ -112,26 +112,19 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Introduction au stress Section */}
       <section className="py-16 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">50K+</div>
-              <div className="text-gray-600">Active Learners</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">2.5K+</div>
-              <div className="text-gray-600">Expert Instructors</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">15K+</div>
-              <div className="text-gray-600">Courses Available</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">98%</div>
-              <div className="text-gray-600">Satisfaction Rate</div>
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-primary/5 to-purple-500/5 rounded-2xl p-8 lg:p-12 border border-primary/10">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 text-center">
+              Introduction au stress
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed text-center">
+              Le stress est une réaction universelle que chacun expérimente, qu'il soit sur le terrain,
+              en bureau ou en management. Il ne s'agit pas seulement d'une émotion, mais d'un ensemble
+              de réponses physiologiques, cognitives et comportementales que notre organisme met en place
+              lorsqu'il perçoit une situation comme exigeante ou menaçante.
+            </p>
           </div>
         </div>
       </section>
