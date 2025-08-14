@@ -248,6 +248,9 @@ export default function Index() {
       {/* Evolution du stress Section */}
       <StressEvolutionSection />
 
+      {/* Self Assessment Section */}
+      <StressSelfAssessmentSection />
+
       {/* Featured Courses */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -396,7 +399,7 @@ function QuizSection() {
     },
     {
       id: 2,
-      question: "Le stress chronique ��puise les ressources de l'organisme.",
+      question: "Le stress chronique épuise les ressources de l'organisme.",
       answer: true,
       explanation: "Vrai. Le stress prolongé maintient l'organisme en état d'alerte constant, ce qui épuise ses réserves énergétiques."
     },
