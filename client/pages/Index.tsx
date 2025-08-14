@@ -164,8 +164,10 @@ export default function Index() {
             </h2>
           </div>
 
-          {/* Inline DidYouKnow after features heading */}
-          <DidYouKnow mode="inline" />
+          {/* Scientific Facts Section */}
+          <div className="mt-16">
+            <ScientificFacts />
+          </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
