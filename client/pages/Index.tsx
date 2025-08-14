@@ -87,8 +87,6 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-purple-500/5"></div>
