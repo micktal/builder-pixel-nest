@@ -26,7 +26,9 @@ import {
   Heart,
   RefreshCw,
   TrendingDown,
-  AlertTriangle
+  AlertTriangle,
+  Lightbulb,
+  Info
 } from "lucide-react";
 
 export default function Index() {
@@ -785,7 +787,7 @@ function MicroCasesSection() {
         {completed && (
           <Card className="mb-8 bg-gradient-to-r from-primary/10 to-purple-500/10 border-primary/20">
             <CardContent className="text-center py-8">
-              <div className="text-4xl mb-4">🏆</div>
+              <div className="text-4xl mb-4">���</div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Micro-cas terminés !
               </h3>
