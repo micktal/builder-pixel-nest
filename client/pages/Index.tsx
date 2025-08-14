@@ -19,7 +19,7 @@ export default function Index() {
   const features = [
     {
       icon: BookOpen,
-      title: "Interactive Content",
+      title: "Une réaction d'adaptation",
       description: "Create engaging courses with videos, quizzes, and interactive elements"
     },
     {
