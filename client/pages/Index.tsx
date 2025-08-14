@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import React from "react";
+import StressEvolutionSection from "@/components/StressEvolutionSection";
 import {
   BookOpen,
   Users,
@@ -395,7 +396,7 @@ function QuizSection() {
     },
     {
       id: 2,
-      question: "Le stress chronique épuise les ressources de l'organisme.",
+      question: "Le stress chronique ��puise les ressources de l'organisme.",
       answer: true,
       explanation: "Vrai. Le stress prolongé maintient l'organisme en état d'alerte constant, ce qui épuise ses réserves énergétiques."
     },
