@@ -269,6 +269,9 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Scientific Facts Section */}
+      <ScientificFacts />
+
       {/* Quiz Section */}
       <QuizSection />
 
@@ -669,7 +672,7 @@ function MicroCasesSection() {
           feedback: "Accepter sans communiquer peut mener au burnout. Il est crucial d'être transparent sur votre charge de travail."
         },
         {
-          text: "Vous pr��sentez votre planning actuel et cherchez des solutions ensemble",
+          text: "Vous présentez votre planning actuel et cherchez des solutions ensemble",
           isOptimal: true,
           feedback: "Parfait ! Montrer votre charge de travail permet de prioriser ensemble et éviter la surcharge."
         },
@@ -827,7 +830,7 @@ function MicroCasesSection() {
               <div className="bg-blue-50 p-4 rounded-lg mb-4">
                 <h4 className="font-semibold text-blue-800 mb-2">Points clés retenus :</h4>
                 <ul className="text-blue-700 text-sm space-y-1 text-left max-w-md mx-auto">
-                  <li>• La communication transparente pr��vient le stress</li>
+                  <li>• La communication transparente prévient le stress</li>
                   <li>• Prendre du recul permet de meilleures décisions</li>
                   <li>• Assumer ses responsabilités réduit l'anxiété</li>
                   <li>• Prioriser évite la surcharge mentale</li>
