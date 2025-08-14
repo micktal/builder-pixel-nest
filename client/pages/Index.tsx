@@ -30,7 +30,7 @@ export default function Index() {
     {
       icon: Award,
       title: "Les déclencheurs externes",
-      description: "Issue certificates and track learning achievements automatically"
+      description: "Le stress peut provenir de stimuli extérieurs : surcharge de travail, interruptions constantes, conflits interpersonnels, imprévus techniques, délais serrés… Ces déclencheurs activent la réponse de stress, parfois même avant que nous en ayons pleinement conscience."
     },
     {
       icon: Zap,
