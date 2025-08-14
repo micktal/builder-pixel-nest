@@ -20,7 +20,7 @@ export default function Index() {
     {
       icon: BookOpen,
       title: "Une réaction d'adaptation",
-      description: "Create engaging courses with videos, quizzes, and interactive elements"
+      description: "Contrairement à une idée reçue, le stress n'est pas toujours négatif. Il s'agit d'un mécanisme d'adaptation hérité de l'évolution : notre corps prépare une réponse rapide face à un danger ou un défi, mobilisant l'énergie nécessaire pour agir."
     },
     {
       icon: Users,
@@ -134,7 +134,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Ce qui compte, ce n'est pas ce qui vous arrive, mais comment vous y r��pondez
+              Ce qui compte, ce n'est pas ce qui vous arrive, mais comment vous y répondez
             </h2>
           </div>
           
