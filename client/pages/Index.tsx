@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import React from "react";
 import StressEvolutionSection from "@/components/StressEvolutionSection";
+import StressSelfAssessmentSection from "@/components/StressSelfAssessment";
 import {
   BookOpen,
   Users,
@@ -220,7 +221,7 @@ export default function Index() {
                 <div className="bg-red-50 p-4 rounded-lg">
                   <h3 className="font-semibold text-red-800 mb-2">Caractéristiques :</h3>
                   <ul className="text-red-700 text-sm space-y-1 text-left">
-                    <li>• Long terme et persistant</li>
+                    <li>��� Long terme et persistant</li>
                     <li>• Épuise les ressources</li>
                     <li>• Altère la santé physique et mentale</li>
                     <li>• Diminue les performances</li>
