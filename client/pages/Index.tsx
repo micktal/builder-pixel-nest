@@ -1,18 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  BookOpen, 
-  Users, 
-  Award, 
-  Zap, 
-  Globe, 
+import {
+  BookOpen,
+  Users,
+  Award,
+  Zap,
+  Globe,
   Headphones,
   Play,
   Clock,
   Star,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
 
 export default function Index() {
