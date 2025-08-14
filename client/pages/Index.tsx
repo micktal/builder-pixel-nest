@@ -45,7 +45,7 @@ export default function Index() {
     {
       icon: Headphones,
       title: "Les signaux d'alerte",
-      description: "Round-the-clock technical support and learning assistance"
+      description: "Le stress se manifeste par des signaux physiques (tensions musculaires, fatigue), émotionnels (irritabilité, anxiété), cognitifs (trous de mémoire, difficultés de concentration) et comportementaux (procrastination, isolement). Les identifier tôt permet d'agir avant que la situation ne s'aggrave."
     }
   ];
 
