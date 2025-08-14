@@ -6,6 +6,7 @@ import React from "react";
 import StressEvolutionSection from "@/components/StressEvolutionSection";
 import StressSelfAssessmentSection from "@/components/StressSelfAssessment";
 import DidYouKnow from "@/components/DidYouKnow";
+import FactTrigger from "@/components/FactTrigger";
 import {
   BookOpen,
   Users,
