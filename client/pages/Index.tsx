@@ -62,7 +62,7 @@ export default function Index() {
     {
       icon: Globe,
       title: "Les réactions physiologiques",
-      description: "Lorsqu'une situation est perçue comme stressante, le cerveau déclenche la sécrétion d'hormones comme l'adrénaline et le cortisol. Ces substances augmentent la fréquence cardiaque, la tension artérielle et mobilisent les réserves d'énergie. Si cette activation perdure, elle devient nocive."
+      description: "Lorsqu'une situation est perçue comme stressante, le cerveau déclenche la s��crétion d'hormones comme l'adrénaline et le cortisol. Ces substances augmentent la fréquence cardiaque, la tension artérielle et mobilisent les réserves d'énergie. Si cette activation perdure, elle devient nocive."
     },
     {
       icon: Headphones,
@@ -284,150 +284,8 @@ export default function Index() {
       {/* Self Assessment Section */}
       <StressSelfAssessmentSection />
 
-      {/* Featured Courses */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Featured Courses
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our most popular courses taught by industry experts
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-purple-500/20 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <Badge className="absolute top-4 left-4 bg-white text-gray-900 hover:bg-white">
-                    {course.level}
-                  </Badge>
-                </div>
-                
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {course.category}
-                    </Badge>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Star className="w-4 h-4 text-yellow-400 mr-1 fill-current" />
-                      {course.rating}
-                    </div>
-                  </div>
-                  <CardTitle className="text-lg leading-tight">{course.title}</CardTitle>
-                  <CardDescription className="text-sm text-gray-600">
-                    by {course.instructor}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {course.duration}
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-1" />
-                      {course.students.toLocaleString()}
-                    </div>
-                  </div>
-                </CardContent>
-                
-                <CardFooter className="flex items-center justify-between pt-0">
-                  <div className="text-2xl font-bold text-primary">{course.price}</div>
-                  <Button size="sm" className="px-6">
-                    Enroll Now
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="px-8">
-              View All Courses
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-purple-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-            Ready to transform your learning experience?
-          </h2>
-          <p className="text-xl text-white/90 mb-4 leading-relaxed">
-            Join thousands of educators and learners who are already creating amazing courses with ArticuLearn
-          </p>
-          <div className="mb-8">
-            <FactTrigger
-              text="💡 Découvrez l'impact des micro-pauses sur la concentration"
-              factIndex={4}
-              variant="text"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
-              Start Your Free Trial
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary">
-              Contact Sales
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Floating DidYouKnow sidebar */}
       <DidYouKnow mode="sidebar" trigger="auto" autoInterval={10000} />
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">ArticuLearn</span>
-              </div>
-              <p className="text-gray-400 mb-6 max-w-md">
-                Empowering educators and learners worldwide with cutting-edge e-learning technology.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 ArticuLearn. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
