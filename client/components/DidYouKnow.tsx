@@ -69,6 +69,8 @@ interface DidYouKnowProps {
   mode?: 'sidebar' | 'popup' | 'inline';
   trigger?: 'click' | 'hover' | 'auto';
   autoInterval?: number;
+  initialFactIndex?: number;
+  onClose?: () => void;
 }
 
 export default function DidYouKnow({ 
