@@ -30,7 +30,11 @@ import {
   TrendingDown,
   AlertTriangle,
   Lightbulb,
-  Info
+  Info,
+  Brain,
+  Shield,
+  Droplet,
+  Wind
 } from "lucide-react";
 
 export default function Index() {
