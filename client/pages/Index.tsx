@@ -96,8 +96,7 @@ export default function Index() {
               Module 1 – <span className="text-primary">Comprendre le stress</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Create, deliver, and scale exceptional learning experiences with our 
-              powerful e-learning platform designed for modern educators and learners.
+              Le stress est un signal, pas une condamnation. Apprenez à l'écouter avant qu'il ne crie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button size="lg" className="text-lg px-8 py-4">
