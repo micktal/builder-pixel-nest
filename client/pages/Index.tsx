@@ -356,9 +356,16 @@ export default function Index() {
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
             Ready to transform your learning experience?
           </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-xl text-white/90 mb-4 leading-relaxed">
             Join thousands of educators and learners who are already creating amazing courses with ArticuLearn
           </p>
+          <div className="mb-8">
+            <FactTrigger
+              text="💡 Découvrez l'impact des micro-pauses sur la concentration"
+              factIndex={4}
+              variant="text"
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
               Start Your Free Trial
