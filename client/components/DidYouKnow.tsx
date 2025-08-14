@@ -107,7 +107,11 @@ export default function DidYouKnow({
   const currentFact = facts[currentFactIndex];
 
   const handleClose = () => {
-    setIsVisible(false);
+    if (onClose) {
+      onClose();
+    } else {
+      setIsVisible(false);
+    }
   };
 
   const handleExpand = () => {
