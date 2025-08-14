@@ -6,15 +6,15 @@ import { Info, Lightbulb } from "lucide-react";
 interface FactTriggerProps {
   text: string;
   factIndex?: number;
-  variant?: 'button' | 'icon' | 'text';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: "button" | "icon" | "text";
+  size?: "sm" | "md" | "lg";
 }
 
-export default function FactTrigger({ 
-  text, 
+export default function FactTrigger({
+  text,
   factIndex = 0,
-  variant = 'button',
-  size = 'md'
+  variant = "button",
+  size = "md",
 }: FactTriggerProps) {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -26,7 +26,7 @@ export default function FactTrigger({
     setShowPopup(false);
   };
 
-  if (variant === 'icon') {
+  if (variant === "icon") {
     return (
       <>
         <button
@@ -37,10 +37,10 @@ export default function FactTrigger({
         >
           <Info className="w-4 h-4" />
         </button>
-        
+
         {showPopup && (
-          <DidYouKnow 
-            mode="popup" 
+          <DidYouKnow
+            mode="popup"
             trigger="click"
             initialFactIndex={factIndex}
             onClose={handleClose}
@@ -50,7 +50,7 @@ export default function FactTrigger({
     );
   }
 
-  if (variant === 'text') {
+  if (variant === "text") {
     return (
       <>
         <span
@@ -58,15 +58,15 @@ export default function FactTrigger({
           className="inline-flex items-center text-blue-600 hover:text-blue-800 cursor-pointer transition-colors duration-200 underline decoration-dotted"
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleClick()}
+          onKeyDown={(e) => e.key === "Enter" && handleClick()}
         >
           <Lightbulb className="w-4 h-4 mr-1" />
           {text}
         </span>
-        
+
         {showPopup && (
-          <DidYouKnow 
-            mode="popup" 
+          <DidYouKnow
+            mode="popup"
             trigger="click"
             initialFactIndex={factIndex}
             onClose={handleClose}
@@ -88,10 +88,10 @@ export default function FactTrigger({
         <Lightbulb className="w-4 h-4 mr-2" />
         {text}
       </Button>
-      
+
       {showPopup && (
-        <DidYouKnow 
-          mode="popup" 
+        <DidYouKnow
+          mode="popup"
           trigger="click"
           initialFactIndex={factIndex}
           onClose={handleClose}
