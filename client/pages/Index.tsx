@@ -587,20 +587,20 @@ function MicroCasesSection() {
   const microCases = [
     {
       id: 1,
-      situation: "Un collègue te demande un dossier urgent alors que tu es déjà sur une autre tâche prioritaire. Que fais-tu ?",
+      situation: "Un collègue vous demande un dossier urgent alors que vous êtes déjà sur une autre tâche prioritaire. Que faites-vous ?",
       options: [
         {
-          text: "Tu arrêtes tout pour lui donner le dossier immédiatement",
+          text: "Vous arrêtez tout pour lui donner le dossier immédiatement",
           isOptimal: false,
-          feedback: "Cette réaction peut créer du stress supplémentaire. Il est important de communiquer sur tes priorités actuelles."
+          feedback: "Cette réaction peut créer du stress supplémentaire. Il est important de communiquer sur vos priorités actuelles."
         },
         {
-          text: "Tu expliques ta situation et proposes un délai réaliste",
+          text: "Vous expliquez votre situation et proposez un délai réaliste",
           isOptimal: true,
           feedback: "Excellente approche ! La communication transparente permet de gérer les priorités sans stress inutile."
         },
         {
-          text: "Tu ignores la demande en espérant qu'il oublie",
+          text: "Vous ignorez la demande en espérant qu'il oublie",
           isOptimal: false,
           feedback: "L'évitement peut aggraver la situation. La communication directe est toujours préférable."
         }
@@ -608,20 +608,20 @@ function MicroCasesSection() {
     },
     {
       id: 2,
-      situation: "Ton manager te confie un nouveau projet alors que ton planning est déjà surchargé. Comment réagis-tu ?",
+      situation: "Votre manager vous confie un nouveau projet alors que votre planning est déjà surchargé. Comment réagissez-vous ?",
       options: [
         {
-          text: "Tu acceptes sans rien dire et travailles plus tard",
+          text: "Vous acceptez sans rien dire et travaillez plus tard",
           isOptimal: false,
-          feedback: "Accepter sans communiquer peut mener au burnout. Il est crucial d'être transparent sur ta charge de travail."
+          feedback: "Accepter sans communiquer peut mener au burnout. Il est crucial d'être transparent sur votre charge de travail."
         },
         {
-          text: "Tu présentes ton planning actuel et cherches des solutions ensemble",
+          text: "Vous présentez votre planning actuel et cherchez des solutions ensemble",
           isOptimal: true,
-          feedback: "Parfait ! Montrer ta charge de travail permet de prioriser ensemble et éviter la surcharge."
+          feedback: "Parfait ! Montrer votre charge de travail permet de prioriser ensemble et éviter la surcharge."
         },
         {
-          text: "Tu refuses catégoriquement le nouveau projet",
+          text: "Vous refusez catégoriquement le nouveau projet",
           isOptimal: false,
           feedback: "Un refus direct sans explication peut créer des tensions. Mieux vaut discuter des priorités."
         }
@@ -629,20 +629,20 @@ function MicroCasesSection() {
     },
     {
       id: 3,
-      situation: "En réunion, un collègue critique publiquement ton travail devant toute l'équipe. Quelle est ta réaction ?",
+      situation: "En réunion, un collègue critique publiquement votre travail devant toute l'équipe. Quelle est votre réaction ?",
       options: [
         {
-          text: "Tu réponds immédiatement pour te défendre",
+          text: "Vous répondez immédiatement pour vous défendre",
           isOptimal: false,
           feedback: "Une réaction à chaud peut escalader le conflit. Prendre du recul permet une réponse plus mesurée."
         },
         {
-          text: "Tu restes calme et proposes d'en discuter après la réunion",
+          text: "Vous restez calme et proposez d'en discuter après la réunion",
           isOptimal: true,
           feedback: "Excellente gestion ! Garder son calme et reporter la discussion évite l'escalade émotionnelle."
         },
         {
-          text: "Tu encaisses en silence et rumines après",
+          text: "Vous encaissez en silence et ruminez après",
           isOptimal: false,
           feedback: "Garder sa frustration peut créer du stress chronique. Il est important d'adresser le problème constructivement."
         }
@@ -650,20 +650,20 @@ function MicroCasesSection() {
     },
     {
       id: 4,
-      situation: "Tu fais une erreur importante dans un rapport qui a déjà été envoyé au client. Comment gères-tu la situation ?",
+      situation: "Vous faites une erreur importante dans un rapport qui a déjà été envoyé au client. Comment gérez-vous la situation ?",
       options: [
         {
-          text: "Tu espères que personne ne s'en apercevra",
+          text: "Vous espérez que personne ne s'en apercevra",
           isOptimal: false,
           feedback: "L'évitement augmente l'anxiété. Il vaut mieux agir rapidement pour corriger l'erreur."
         },
         {
-          text: "Tu informes immédiatement ton responsable et proposes une solution",
+          text: "Vous informez immédiatement votre responsable et proposez une solution",
           isOptimal: true,
-          feedback: "Excellente réaction ! La transparence rapide permet de limiter les dégâts et montre ta responsabilité."
+          feedback: "Excellente réaction ! La transparence rapide permet de limiter les dégâts et montre votre responsabilité."
         },
         {
-          text: "Tu paniques et cherches quelqu'un d'autre à blâmer",
+          text: "Vous paniquez et cherchez quelqu'un d'autre à blâmer",
           isOptimal: false,
           feedback: "La panique et le blâme aggravent le stress. Assumer ses erreurs permet de mieux les gérer."
         }
@@ -671,22 +671,22 @@ function MicroCasesSection() {
     },
     {
       id: 5,
-      situation: "Tu as plusieurs échéances importantes le même jour et tu sens le stress monter. Que fais-tu en priorité ?",
+      situation: "Vous avez plusieurs échéances importantes le même jour et vous sentez le stress monter. Que faites-vous en priorité ?",
       options: [
         {
-          text: "Tu travailles plus vite en essayant de tout finir",
+          text: "Vous travaillez plus vite en essayant de tout finir",
           isOptimal: false,
           feedback: "Accélérer peut augmenter les erreurs et le stress. Mieux vaut prioriser et planifier."
         },
         {
-          text: "Tu fais une pause pour respirer et hiérarchiser tes tâches",
+          text: "Vous faites une pause pour respirer et hiérarchiser vos tâches",
           isOptimal: true,
           feedback: "Parfait ! Prendre du recul pour organiser ses priorités est la meilleure stratégie anti-stress."
         },
         {
-          text: "Tu demandes un délai supplémentaire pour tout",
+          text: "Vous demandez un délai supplémentaire pour tout",
           isOptimal: false,
-          feedback: "Demander des délais sans analyse peut nuire à ta crédibilité. Mieux vaut prioriser d'abord."
+          feedback: "Demander des délais sans analyse peut nuire à votre crédibilité. Mieux vaut prioriser d'abord."
         }
       ]
     }
