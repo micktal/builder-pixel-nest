@@ -39,7 +39,7 @@ export default function Index() {
     },
     {
       icon: Globe,
-      title: "Global Accessibility",
+      title: "Les réactions physiologiques",
       description: "Multi-language support and accessibility features for all learners"
     },
     {
