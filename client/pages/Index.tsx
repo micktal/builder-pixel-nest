@@ -582,3 +582,316 @@ function QuizSection() {
     </section>
   );
 }
+
+function MicroCasesSection() {
+  const microCases = [
+    {
+      id: 1,
+      situation: "Un collègue te demande un dossier urgent alors que tu es déjà sur une autre tâche prioritaire. Que fais-tu ?",
+      options: [
+        {
+          text: "Tu arrêtes tout pour lui donner le dossier immédiatement",
+          isOptimal: false,
+          feedback: "Cette réaction peut créer du stress supplémentaire. Il est important de communiquer sur tes priorités actuelles."
+        },
+        {
+          text: "Tu expliques ta situation et proposes un délai réaliste",
+          isOptimal: true,
+          feedback: "Excellente approche ! La communication transparente permet de gérer les priorités sans stress inutile."
+        },
+        {
+          text: "Tu ignores la demande en espérant qu'il oublie",
+          isOptimal: false,
+          feedback: "L'évitement peut aggraver la situation. La communication directe est toujours préférable."
+        }
+      ]
+    },
+    {
+      id: 2,
+      situation: "Ton manager te confie un nouveau projet alors que ton planning est déjà surchargé. Comment réagis-tu ?",
+      options: [
+        {
+          text: "Tu acceptes sans rien dire et travailles plus tard",
+          isOptimal: false,
+          feedback: "Accepter sans communiquer peut mener au burnout. Il est crucial d'être transparent sur ta charge de travail."
+        },
+        {
+          text: "Tu présentes ton planning actuel et cherches des solutions ensemble",
+          isOptimal: true,
+          feedback: "Parfait ! Montrer ta charge de travail permet de prioriser ensemble et éviter la surcharge."
+        },
+        {
+          text: "Tu refuses catégoriquement le nouveau projet",
+          isOptimal: false,
+          feedback: "Un refus direct sans explication peut créer des tensions. Mieux vaut discuter des priorités."
+        }
+      ]
+    },
+    {
+      id: 3,
+      situation: "En réunion, un collègue critique publiquement ton travail devant toute l'équipe. Quelle est ta réaction ?",
+      options: [
+        {
+          text: "Tu réponds immédiatement pour te défendre",
+          isOptimal: false,
+          feedback: "Une réaction à chaud peut escalader le conflit. Prendre du recul permet une réponse plus mesurée."
+        },
+        {
+          text: "Tu restes calme et proposes d'en discuter après la réunion",
+          isOptimal: true,
+          feedback: "Excellente gestion ! Garder son calme et reporter la discussion évite l'escalade émotionnelle."
+        },
+        {
+          text: "Tu encaisses en silence et rumines après",
+          isOptimal: false,
+          feedback: "Garder sa frustration peut créer du stress chronique. Il est important d'adresser le problème constructivement."
+        }
+      ]
+    },
+    {
+      id: 4,
+      situation: "Tu fais une erreur importante dans un rapport qui a déjà été envoyé au client. Comment gères-tu la situation ?",
+      options: [
+        {
+          text: "Tu espères que personne ne s'en apercevra",
+          isOptimal: false,
+          feedback: "L'évitement augmente l'anxiété. Il vaut mieux agir rapidement pour corriger l'erreur."
+        },
+        {
+          text: "Tu informes immédiatement ton responsable et proposes une solution",
+          isOptimal: true,
+          feedback: "Excellente réaction ! La transparence rapide permet de limiter les dégâts et montre ta responsabilité."
+        },
+        {
+          text: "Tu paniques et cherches quelqu'un d'autre à blâmer",
+          isOptimal: false,
+          feedback: "La panique et le blâme aggravent le stress. Assumer ses erreurs permet de mieux les gérer."
+        }
+      ]
+    },
+    {
+      id: 5,
+      situation: "Tu as plusieurs échéances importantes le même jour et tu sens le stress monter. Que fais-tu en priorité ?",
+      options: [
+        {
+          text: "Tu travailles plus vite en essayant de tout finir",
+          isOptimal: false,
+          feedback: "Accélérer peut augmenter les erreurs et le stress. Mieux vaut prioriser et planifier."
+        },
+        {
+          text: "Tu fais une pause pour respirer et hiérarchiser tes tâches",
+          isOptimal: true,
+          feedback: "Parfait ! Prendre du recul pour organiser ses priorités est la meilleure stratégie anti-stress."
+        },
+        {
+          text: "Tu demandes un délai supplémentaire pour tout",
+          isOptimal: false,
+          feedback: "Demander des délais sans analyse peut nuire à ta crédibilité. Mieux vaut prioriser d'abord."
+        }
+      ]
+    }
+  ];
+
+  const [currentCase, setCurrentCase] = useState(0);
+  const [userChoices, setUserChoices] = useState<{[key: number]: number | null}>({});
+  const [showFeedback, setShowFeedback] = useState<{[key: number]: boolean}>({});
+  const [completed, setCompleted] = useState(false);
+
+  const handleChoice = (caseId: number, optionIndex: number) => {
+    if (showFeedback[caseId]) return; // Prevent multiple selections
+
+    setUserChoices(prev => ({ ...prev, [caseId]: optionIndex }));
+    setShowFeedback(prev => ({ ...prev, [caseId]: true }));
+
+    // Check if all cases are completed
+    const totalAnswered = Object.keys(userChoices).length + 1;
+    if (totalAnswered === microCases.length) {
+      setTimeout(() => setCompleted(true), 1000);
+    }
+  };
+
+  const resetCases = () => {
+    setCurrentCase(0);
+    setUserChoices({});
+    setShowFeedback({});
+    setCompleted(false);
+  };
+
+  const getCompletedCount = () => Object.keys(userChoices).length;
+  const getCorrectCount = () => {
+    return Object.entries(userChoices).reduce((count, [caseId, optionIndex]) => {
+      const caseData = microCases.find(c => c.id === parseInt(caseId));
+      if (caseData && optionIndex !== null && caseData.options[optionIndex]?.isOptimal) {
+        return count + 1;
+      }
+      return count;
+    }, 0);
+  };
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Micro-cas pratiques
+          </h2>
+          <p className="text-lg text-gray-600">
+            Des situations réelles pour appliquer la gestion du stress
+          </p>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-medium text-gray-600">
+              Progression: {getCompletedCount()}/{microCases.length}
+            </span>
+            {completed && (
+              <span className="text-sm font-medium text-primary">
+                Réponses optimales: {getCorrectCount()}/{microCases.length}
+              </span>
+            )}
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div
+              className="bg-primary h-2 rounded-full transition-all duration-300"
+              style={{ width: `${(getCompletedCount() / microCases.length) * 100}%` }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Completion Message */}
+        {completed && (
+          <Card className="mb-8 bg-gradient-to-r from-primary/10 to-purple-500/10 border-primary/20">
+            <CardContent className="text-center py-8">
+              <div className="text-4xl mb-4">🏆</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Micro-cas terminés !
+              </h3>
+              <p className="text-lg text-gray-600 mb-4">
+                Vous avez trouvé {getCorrectCount()}/{microCases.length} réponses optimales
+              </p>
+              <div className="bg-blue-50 p-4 rounded-lg mb-4">
+                <h4 className="font-semibold text-blue-800 mb-2">Points clés retenus :</h4>
+                <ul className="text-blue-700 text-sm space-y-1 text-left max-w-md mx-auto">
+                  <li>• La communication transparente prévient le stress</li>
+                  <li>• Prendre du recul permet de meilleures décisions</li>
+                  <li>• Assumer ses responsabilités réduit l'anxiété</li>
+                  <li>• Prioriser évite la surcharge mentale</li>
+                </ul>
+              </div>
+              <Button onClick={resetCases} className="mt-4">
+                <RotateCcw className="w-4 h-4 mr-2" />
+                Recommencer
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Micro Cases */}
+        <div className="space-y-6">
+          {microCases.map((microCase) => (
+            <Card key={microCase.id} className="border-2 border-gray-100 hover:border-primary/20 transition-all duration-200">
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium text-primary">
+                    Cas pratique {microCase.id}
+                  </span>
+                  {showFeedback[microCase.id] && (
+                    <div className={`flex items-center ${
+                      userChoices[microCase.id] !== null &&
+                      microCase.options[userChoices[microCase.id]!]?.isOptimal
+                        ? 'text-green-600'
+                        : 'text-orange-600'
+                    }`}>
+                      {userChoices[microCase.id] !== null &&
+                       microCase.options[userChoices[microCase.id]!]?.isOptimal ? (
+                        <Check className="w-5 h-5" />
+                      ) : (
+                        <AlertCircle className="w-5 h-5" />
+                      )}
+                    </div>
+                  )}
+                </div>
+                <CardTitle className="text-lg leading-relaxed">
+                  {microCase.situation}
+                </CardTitle>
+              </CardHeader>
+
+              <CardContent>
+                {!showFeedback[microCase.id] ? (
+                  <div className="space-y-3">
+                    {microCase.options.map((option, index) => (
+                      <Button
+                        key={index}
+                        variant="outline"
+                        className="w-full text-left justify-start h-auto p-4 text-gray-700 hover:bg-primary/5 hover:border-primary/30"
+                        onClick={() => handleChoice(microCase.id, index)}
+                      >
+                        <span className="text-sm leading-relaxed">{option.text}</span>
+                      </Button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {microCase.options.map((option, index) => {
+                      const isSelected = userChoices[microCase.id] === index;
+                      const isOptimal = option.isOptimal;
+
+                      return (
+                        <div
+                          key={index}
+                          className={`p-4 rounded-lg border-2 ${
+                            isSelected
+                              ? isOptimal
+                                ? 'bg-green-50 border-green-200'
+                                : 'bg-orange-50 border-orange-200'
+                              : isOptimal
+                              ? 'bg-blue-50 border-blue-200'
+                              : 'bg-gray-50 border-gray-200'
+                          }`}
+                        >
+                          <div className="flex items-start">
+                            <div className="flex-shrink-0 mr-3 mt-0.5">
+                              {isSelected ? (
+                                isOptimal ? (
+                                  <Check className="w-5 h-5 text-green-600" />
+                                ) : (
+                                  <X className="w-5 h-5 text-orange-600" />
+                                )
+                              ) : isOptimal ? (
+                                <CheckCircle className="w-5 h-5 text-blue-600" />
+                              ) : null}
+                            </div>
+                            <div className="flex-1">
+                              <p className={`text-sm mb-2 ${
+                                isSelected
+                                  ? isOptimal ? 'text-green-800' : 'text-orange-800'
+                                  : isOptimal ? 'text-blue-800' : 'text-gray-700'
+                              }`}>
+                                {option.text}
+                              </p>
+                              {(isSelected || isOptimal) && (
+                                <p className={`text-xs ${
+                                  isSelected
+                                    ? isOptimal ? 'text-green-700' : 'text-orange-700'
+                                    : 'text-blue-700'
+                                }`}>
+                                  {option.feedback}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
