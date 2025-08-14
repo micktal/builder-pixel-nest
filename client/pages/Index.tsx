@@ -372,3 +372,210 @@ export default function Index() {
     </div>
   );
 }
+
+function QuizSection() {
+  const questions = [
+    {
+      id: 1,
+      question: "Le stress est toujours néfaste pour l'organisme.",
+      answer: false,
+      explanation: "Faux. Le stress aigu peut être bénéfique et améliorer les performances. C'est le stress chronique qui devient délétère."
+    },
+    {
+      id: 2,
+      question: "Le stress chronique épuise les ressources de l'organisme.",
+      answer: true,
+      explanation: "Vrai. Le stress prolongé maintient l'organisme en état d'alerte constant, ce qui épuise ses réserves énergétiques."
+    },
+    {
+      id: 3,
+      question: "Les signaux d'alerte du stress sont uniquement physiques.",
+      answer: false,
+      explanation: "Faux. Le stress se manifeste par des signaux physiques, émotionnels, cognitifs et comportementaux."
+    },
+    {
+      id: 4,
+      question: "Une présentation importante peut déclencher un stress aigu bénéfique.",
+      answer: true,
+      explanation: "Vrai. Cette situation mobilise les ressources pour améliorer la performance, c'est un stress adaptatif."
+    },
+    {
+      id: 5,
+      question: "Nos traits de personnalité n'influencent pas notre réaction au stress.",
+      answer: false,
+      explanation: "Faux. Le perfectionnisme, la peur de l'erreur ou la faible tolérance à l'incertitude amplifient la réaction de stress."
+    }
+  ];
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [userAnswers, setUserAnswers] = useState<{[key: number]: boolean | null}>({});
+  const [showFeedback, setShowFeedback] = useState<{[key: number]: boolean}>({});
+  const [score, setScore] = useState(0);
+  const [quizCompleted, setQuizCompleted] = useState(false);
+
+  const handleAnswer = (questionId: number, answer: boolean) => {
+    if (showFeedback[questionId]) return; // Prevent multiple answers
+
+    const question = questions.find(q => q.id === questionId);
+    const isCorrect = question?.answer === answer;
+
+    setUserAnswers(prev => ({ ...prev, [questionId]: answer }));
+    setShowFeedback(prev => ({ ...prev, [questionId]: true }));
+
+    if (isCorrect) {
+      setScore(prev => prev + 1);
+    }
+
+    // Check if all questions are answered
+    const totalAnswered = Object.keys(userAnswers).length + 1;
+    if (totalAnswered === questions.length) {
+      setTimeout(() => setQuizCompleted(true), 1000);
+    }
+  };
+
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setUserAnswers({});
+    setShowFeedback({});
+    setScore(0);
+    setQuizCompleted(false);
+  };
+
+  const getAnsweredCount = () => Object.keys(userAnswers).length;
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Quiz — Comprendre le stress
+          </h2>
+          <p className="text-lg text-gray-600">
+            Testez vos connaissances avec ces questions Vrai/Faux
+          </p>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-medium text-gray-600">
+              Progression: {getAnsweredCount()}/{questions.length}
+            </span>
+            <span className="text-sm font-medium text-primary">
+              Score: {score}/{questions.length}
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div
+              className="bg-primary h-2 rounded-full transition-all duration-300"
+              style={{ width: `${(getAnsweredCount() / questions.length) * 100}%` }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Quiz Completed */}
+        {quizCompleted && (
+          <Card className="mb-8 bg-gradient-to-r from-primary/10 to-purple-500/10 border-primary/20">
+            <CardContent className="text-center py-8">
+              <div className="text-4xl mb-4">🎉</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Quiz terminé !
+              </h3>
+              <p className="text-lg text-gray-600 mb-4">
+                Votre score: {score}/{questions.length} ({Math.round((score / questions.length) * 100)}%)
+              </p>
+              <Button onClick={resetQuiz} className="mt-4">
+                <RotateCcw className="w-4 h-4 mr-2" />
+                Recommencer
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Questions */}
+        <div className="space-y-6">
+          {questions.map((question, index) => (
+            <Card key={question.id} className="border-2 border-gray-100 hover:border-primary/20 transition-all duration-200">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium text-primary">
+                    Question {question.id}
+                  </span>
+                  {showFeedback[question.id] && (
+                    <div className={`flex items-center ${
+                      userAnswers[question.id] === question.answer
+                        ? 'text-green-600'
+                        : 'text-red-600'
+                    }`}>
+                      {userAnswers[question.id] === question.answer ? (
+                        <Check className="w-5 h-5" />
+                      ) : (
+                        <X className="w-5 h-5" />
+                      )}
+                    </div>
+                  )}
+                </div>
+                <CardTitle className="text-xl leading-relaxed">
+                  {question.question}
+                </CardTitle>
+              </CardHeader>
+
+              <CardContent>
+                {!showFeedback[question.id] ? (
+                  <div className="flex gap-4 justify-center">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="px-8 py-3 bg-green-50 border-green-200 text-green-700 hover:bg-green-100 hover:border-green-300"
+                      onClick={() => handleAnswer(question.id, true)}
+                    >
+                      <Check className="w-4 h-4 mr-2" />
+                      Vrai
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="px-8 py-3 bg-red-50 border-red-200 text-red-700 hover:bg-red-100 hover:border-red-300"
+                      onClick={() => handleAnswer(question.id, false)}
+                    >
+                      <X className="w-4 h-4 mr-2" />
+                      Faux
+                    </Button>
+                  </div>
+                ) : (
+                  <div className={`p-4 rounded-lg ${
+                    userAnswers[question.id] === question.answer
+                      ? 'bg-green-50 border border-green-200'
+                      : 'bg-red-50 border border-red-200'
+                  }`}>
+                    <div className="flex items-center mb-2">
+                      {userAnswers[question.id] === question.answer ? (
+                        <Check className="w-5 h-5 text-green-600 mr-2" />
+                      ) : (
+                        <X className="w-5 h-5 text-red-600 mr-2" />
+                      )}
+                      <span className={`font-semibold ${
+                        userAnswers[question.id] === question.answer
+                          ? 'text-green-800'
+                          : 'text-red-800'
+                      }`}>
+                        {userAnswers[question.id] === question.answer ? 'Correct !' : 'Incorrect'}
+                      </span>
+                    </div>
+                    <p className={`${
+                      userAnswers[question.id] === question.answer
+                        ? 'text-green-700'
+                        : 'text-red-700'
+                    }`}>
+                      {question.explanation}
+                    </p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
