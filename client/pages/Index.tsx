@@ -109,20 +109,6 @@ export default function Index() {
                 Watch Demo
               </Button>
             </div>
-            <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500">
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                No credit card required
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                14-day free trial
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                Cancel anytime
-              </div>
-            </div>
           </div>
         </div>
       </section>
