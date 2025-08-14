@@ -29,7 +29,7 @@ export default function Index() {
     },
     {
       icon: Award,
-      title: "Certification",
+      title: "Les déclencheurs externes",
       description: "Issue certificates and track learning achievements automatically"
     },
     {
