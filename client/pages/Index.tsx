@@ -42,6 +42,9 @@ import {
   Shield,
   Droplet,
   Wind,
+  Timer,
+  ExternalLink,
+  Target,
 } from "lucide-react";
 
 export default function Index() {
