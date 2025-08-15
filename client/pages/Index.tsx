@@ -119,13 +119,6 @@ export default function Index() {
               menaçante.
             </p>
 
-            {/* Contextual fact trigger */}
-            <div className="flex justify-center mt-6">
-              <FactTrigger
-                text="💡 Découvrez un fait surprenant sur le stress"
-                factIndex={0}
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -742,7 +735,7 @@ function MicroCasesSection() {
                   <li>• La communication transparente prévient le stress</li>
                   <li>• Prendre du recul permet de meilleures décisions</li>
                   <li>• Assumer ses responsabilités réduit l'anxiété</li>
-                  <li>• Prioriser évite la surcharge mentale</li>
+                  <li>��� Prioriser évite la surcharge mentale</li>
                 </ul>
               </div>
               <Button onClick={resetCases} className="mt-4">
