@@ -50,37 +50,37 @@ import {
 export default function Index() {
   const features = [
     {
-      icon: BookOpen,
+      icon: Shield,
       title: "Une réaction d'adaptation",
       description:
         "Contrairement à une idée reçue, le stress n'est pas toujours négatif. Il s'agit d'un mécanisme d'adaptation hérité de l'évolution : notre corps prépare une réponse rapide face à un danger ou un défi, mobilisant l'énergie nécessaire pour agir.",
     },
     {
-      icon: Users,
+      icon: Timer,
       title: "Stress aigu vs stress chronique",
       description:
         "On distingue le stress aigu, ponctuel et souvent bénéfique (présentation importante, gestion d'une urgence), et le stress chronique, prolongé et délétère, qui épuise l'organisme et altère la santé mentale et physique.",
     },
     {
-      icon: Award,
+      icon: ExternalLink,
       title: "Les déclencheurs externes",
       description:
         "Le stress peut provenir de stimuli extérieurs : surcharge de travail, interruptions constantes, conflits interpersonnels, imprévus techniques, délais serrés… Ces déclencheurs activent la réponse de stress, parfois même avant que nous en ayons pleinement conscience.",
     },
     {
-      icon: Zap,
+      icon: Brain,
       title: "Les facteurs internes",
       description:
         "Nos pensées, croyances et traits de personnalité jouent un rôle important. Le perfectionnisme, la peur de l'erreur, la faible tolérance à l'incertitude ou encore une faible perception de contrôle peuvent amplifier la réaction de stress, même face à des situations relativement neutres.",
     },
     {
-      icon: Globe,
+      icon: Heart,
       title: "Les réactions physiologiques",
       description:
         "Lorsqu'une situation est perçue comme stressante, le cerveau déclenche la s��crétion d'hormones comme l'adrénaline et le cortisol. Ces substances augmentent la fréquence cardiaque, la tension artérielle et mobilisent les réserves d'énergie. Si cette activation perdure, elle devient nocive.",
     },
     {
-      icon: Headphones,
+      icon: AlertTriangle,
       title: "Les signaux d'alerte",
       description:
         "Le stress se manifeste par des signaux physiques (tensions musculaires, fatigue), émotionnels (irritabilité, anxiété), cognitifs (trous de mémoire, difficultés de concentration) et comportementaux (procrastination, isolement). Les identifier tôt permet d'agir avant que la situation ne s'aggrave.",
