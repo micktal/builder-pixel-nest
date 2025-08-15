@@ -266,33 +266,6 @@ export default function ScientificFacts() {
 
         {/* Additional info and CTA */}
         <div className="text-center">
-          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-blue-200/50 shadow-lg mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              📚 Approche scientifique
-            </h3>
-            <p className="text-gray-700 max-w-2xl mx-auto leading-relaxed mb-6">
-              Ces informations sont basées sur des études peer-reviewed en
-              neurosciences, cardiologie et psychologie de la santé. Chaque fait
-              est documenté par des recherches récentes menées dans des
-              institutions reconnues.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                onClick={handleShowAllFacts}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Voir toutes les études
-              </Button>
-              <Button
-                variant="outline"
-                className="border-blue-200 text-blue-700 hover:bg-blue-50 px-6 py-3"
-              >
-                Continuer le module
-              </Button>
-            </div>
-          </div>
 
           {/* Disclaimer */}
           <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg text-sm text-yellow-800 max-w-2xl mx-auto">
