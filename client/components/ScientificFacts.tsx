@@ -266,7 +266,6 @@ export default function ScientificFacts() {
 
         {/* Additional info and CTA */}
         <div className="text-center">
-
           {/* Disclaimer */}
           <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg text-sm text-yellow-800 max-w-2xl mx-auto">
             <p className="font-medium mb-2">⚠️ Information scientifique :</p>

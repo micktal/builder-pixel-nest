@@ -121,7 +121,6 @@ export default function Index() {
               met en place lorsqu'il perçoit une situation comme exigeante ou
               menaçante.
             </p>
-
           </div>
         </div>
       </section>
