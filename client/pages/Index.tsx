@@ -542,6 +542,148 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Video Section - Stratégies d'adaptation au stress */}
+      <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Stratégies d'adaptation et résilience
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Découvrez comment transformer les défis en opportunités de croissance personnelle grâce à des stratégies d'adaptation efficaces.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Video Player */}
+            <div className="lg:order-2">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <video
+                  controls
+                  className="w-full h-auto"
+                  aria-label="Vidéo sur les stratégies d'adaptation au stress"
+                  poster="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg"
+                >
+                  <p className="text-gray-600 p-4">
+                    Votre navigateur ne supporte pas les vidéos HTML5. Veuillez mettre à jour votre navigateur.
+                  </p>
+                </video>
+
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Développer sa résilience face aux défis
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            {/* Transcription */}
+            <div className="lg:order-1">
+              <Card className="bg-white border-2 border-purple-200 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-purple-100 to-pink-100">
+                  <CardTitle className="flex items-center gap-2 text-purple-900">
+                    <Headphones className="w-5 h-5" />
+                    Transcription pour l'accessibilité
+                  </CardTitle>
+                  <p className="text-sm text-purple-700">
+                    Contenu audio de la vidéo pour les personnes malentendantes
+                  </p>
+                </CardHeader>
+                <CardContent className="p-6 max-h-96 overflow-y-auto">
+                  <div className="space-y-4 text-sm">
+                    <div className="border-l-4 border-purple-400 pl-4">
+                      <p className="text-gray-700 leading-relaxed">
+                        Faire face à des situations difficiles déclenche des réactions de stress à la fois dans le corps et dans l'esprit. Reconnaître ce stress est la première étape pour s'adapter efficacement aux défis.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-blue-400 pl-4">
+                      <p className="text-gray-700 leading-relaxed">
+                        Le fait de prendre un moment pour respirer et observer peut réduire considérablement les hormones du stress. Analyser calmement la situation permet de mieux comprendre le problème et d'améliorer la prise de décision.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-green-400 pl-4">
+                      <p className="text-gray-700 leading-relaxed">
+                        Les gens mobilisent souvent la créativité, l'organisation et le soutien social comme ressources clés pendant les périodes difficiles. Ceux qui utilisent des stratégies flexibles s'adaptent mieux et surmontent les obstacles avec plus de succès.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-orange-400 pl-4">
+                      <p className="text-gray-700 leading-relaxed">
+                        S'adapter signifie accepter le changement et trouver de nouvelles voies lorsque les anciennes sont bloquées, comme le montrent de nombreuses études sur la résilience.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-pink-400 pl-4">
+                      <p className="text-gray-700 leading-relaxed">
+                        En fin de compte, le développement des compétences d'adaptation transforme les difficultés en opportunités de croissance personnelle et d'apprentissage.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Points clés de la vidéo */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              Les piliers de l'adaptation
+            </h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <Card className="text-center border-2 border-purple-200 hover:border-purple-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Brain className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Reconnaissance</h4>
+                  <p className="text-gray-600 text-sm">
+                    Identifier ses réactions de stress pour mieux les gérer
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center border-2 border-blue-200 hover:border-blue-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Wind className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Respiration</h4>
+                  <p className="text-gray-600 text-sm">
+                    Utiliser la respiration pour réduire les hormones de stress
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center border-2 border-green-200 hover:border-green-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Ressources</h4>
+                  <p className="text-gray-600 text-sm">
+                    Mobiliser créativité, organisation et soutien social
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center border-2 border-orange-200 hover:border-orange-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Résilience</h4>
+                  <p className="text-gray-600 text-sm">
+                    Transformer les défis en opportunités de croissance
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Outils pratiques Section */}
       <section className="py-20 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
