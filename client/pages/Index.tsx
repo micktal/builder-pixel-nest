@@ -156,6 +156,130 @@ export default function Index() {
     );
   }
 
+  if (currentSection === 'timemanagement') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-900">Gestion du temps et priorités</h1>
+              <Button onClick={backToMain} variant="outline">
+                <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                Retour au module
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Contenu de gestion du temps */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Maîtrisez votre temps pour réduire le stress
+            </h2>
+            <p className="text-xl text-gray-600">
+              Une bonne organisation permet de prévenir la surcharge et l'anxiété
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card className="p-6">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Target className="w-6 h-6 text-purple-600" />
+                  Matrice d'Eisenhower
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Classez vos tâches selon leur urgence et importance pour prioriser efficacement.
+                </p>
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <div className="bg-red-50 p-3 rounded border-l-4 border-red-400">
+                    <strong>Urgent + Important</strong><br/>À faire immédiatement
+                  </div>
+                  <div className="bg-blue-50 p-3 rounded border-l-4 border-blue-400">
+                    <strong>Pas urgent + Important</strong><br/>À planifier
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded border-l-4 border-yellow-400">
+                    <strong>Urgent + Pas important</strong><br/>À déléguer
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded border-l-4 border-gray-400">
+                    <strong>Pas urgent + Pas important</strong><br/>À éliminer
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Clock className="w-6 h-6 text-purple-600" />
+                  Technique Pomodoro
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Travaillez par blocs de 25 minutes avec des pauses pour maintenir votre concentration.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-sm">1</div>
+                    <span>25 min de travail focalisé</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm">2</div>
+                    <span>5 min de pause</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm">3</div>
+                    <span>Répéter 4 cycles</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-sm">4</div>
+                    <span>Pause longue de 30 min</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="p-6 bg-gradient-to-r from-purple-50 to-indigo-50">
+            <CardContent>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Planning anti-stress</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="bg-white p-4 rounded-lg">
+                  <h4 className="font-semibold text-purple-600 mb-2">🌅 Matin</h4>
+                  <ul className="text-sm space-y-1 text-gray-600">
+                    <li>• Préparez votre journée la veille</li>
+                    <li>• Commencez par les tâches importantes</li>
+                    <li>• Prévoyez des créneaux de respiration</li>
+                  </ul>
+                </div>
+                <div className="bg-white p-4 rounded-lg">
+                  <h4 className="font-semibold text-purple-600 mb-2">☀️ Journée</h4>
+                  <ul className="text-sm space-y-1 text-gray-600">
+                    <li>• Respectez vos pauses</li>
+                    <li>• Dites non aux urgences non importantes</li>
+                    <li>• Regroupez les tâches similaires</li>
+                  </ul>
+                </div>
+                <div className="bg-white p-4 rounded-lg">
+                  <h4 className="font-semibold text-purple-600 mb-2">🌙 Soir</h4>
+                  <ul className="text-sm space-y-1 text-gray-600">
+                    <li>• Faites le bilan de la journée</li>
+                    <li>• Préparez le lendemain</li>
+                    <li>• Déconnectez-vous du travail</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
   const features = [
     {
       icon: Shield,
