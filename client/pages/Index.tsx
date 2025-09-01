@@ -741,33 +741,24 @@ export default function Index() {
             </Card>
 
             {/* Étape 2 */}
-            <Card className="text-center border-2 border-blue-200 hover:border-blue-300 transition-all">
+            <Card className="text-center border-2 border-purple-200 hover:border-purple-300 transition-all">
               <CardHeader>
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">2</span>
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-purple-600">2</span>
                 </div>
-                <CardTitle className="text-xl text-gray-900">Pratiquez les techniques</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Organisez votre temps</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Maîtrisez les techniques de respiration et de relaxation qui vous conviennent.
+                  Apprenez à gérer vos priorités et organiser votre planning pour réduire la surcharge.
                 </p>
-                <div className="flex gap-2">
-                  <Button
-                    onClick={() => navigateToSection('breathing')}
-                    size="sm"
-                    className="flex-1 bg-blue-600 hover:bg-blue-700"
-                  >
-                    <Wind className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    onClick={() => navigateToSection('relaxation')}
-                    size="sm"
-                    className="flex-1 bg-purple-600 hover:bg-purple-700"
-                  >
-                    <Brain className="w-4 h-4" />
-                  </Button>
-                </div>
+                <Button
+                  onClick={() => navigateToSection('timemanagement')}
+                  className="w-full bg-purple-600 hover:bg-purple-700"
+                >
+                  <Clock className="w-4 h-4 mr-2" />
+                  Planifier efficacement
+                </Button>
               </CardContent>
             </Card>
 
