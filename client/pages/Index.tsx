@@ -309,48 +309,120 @@ export default function Index() {
 
 function QuizSection() {
   const questions = [
+    // Questions théoriques de base
     {
       id: 1,
+      type: "true-false",
       question: "Le stress est toujours néfaste pour l'organisme.",
       answer: false,
       explanation:
         "Faux. Le stress aigu peut être bénéfique et améliorer les performances. C'est le stress chronique qui devient délétère.",
+      practicalTip: "Apprenez à distinguer stress aigu et chronique pour mieux gérer vos réactions."
     },
     {
       id: 2,
+      type: "true-false",
       question: "Le stress chronique épuise les ressources de l'organisme.",
       answer: true,
       explanation:
         "Vrai. Le stress prolongé maintient l'organisme en état d'alerte constant, ce qui épuise ses réserves énergétiques.",
+      practicalTip: "Intégrez des moments de récupération réguliers dans votre quotidien."
     },
     {
       id: 3,
+      type: "true-false",
       question: "Les signaux d'alerte du stress sont uniquement physiques.",
       answer: false,
       explanation:
         "Faux. Le stress se manifeste par des signaux physiques, émotionnels, cognitifs et comportementaux.",
+      practicalTip: "Développez votre conscience de tous les types de signaux pour une détection précoce."
     },
+
+    // Questions pratiques sur les techniques de respiration
     {
       id: 4,
-      question:
-        "Une présentation importante peut déclencher un stress aigu bénéfique.",
-      answer: true,
+      type: "multiple-choice",
+      question: "Quelle est la technique de respiration la plus adaptée pour se calmer rapidement avant un entretien ?",
+      options: [
+        "Respiration rapide et superficielle",
+        "Respiration carrée (4-4-4-4)",
+        "Retenir sa respiration le plus longtemps possible",
+        "Respirer uniquement par la bouche"
+      ],
+      correctAnswer: 1,
       explanation:
-        "Vrai. Cette situation mobilise les ressources pour améliorer la performance, c'est un stress adaptatif.",
+        "La respiration carrée (4 secondes d'inspiration, 4 de rétention, 4 d'expiration, 4 de pause) est idéale pour retrouver rapidement son calme car elle régule le système nerveux.",
+      practicalTip: "Pratiquez cette technique 2-3 minutes avant toute situation stressante prévue."
     },
     {
       id: 5,
-      question:
-        "Nos traits de personnalité n'influencent pas notre réaction au stress.",
-      answer: false,
+      type: "multiple-choice",
+      question: "Vous ressentez une montée d'anxiété au travail. Quelle est la meilleure stratégie immédiate ?",
+      options: [
+        "Ignorer la sensation et continuer à travailler",
+        "Prendre 3 respirations profondes et identifier la cause",
+        "Quitter immédiatement le bureau",
+        "Boire plusieurs cafés pour se concentrer"
+      ],
+      correctAnswer: 1,
       explanation:
-        "Faux. Le perfectionnisme, la peur de l'erreur ou la faible tolérance à l'incertitude amplifient la réaction de stress.",
+        "Prendre quelques respirations profondes permet de réguler le système nerveux, puis identifier la cause aide à choisir la bonne stratégie d'adaptation.",
+      practicalTip: "Cette pause consciente de 30 secondes peut transformer votre réaction au stress."
     },
+
+    // Questions sur la détection des signaux
+    {
+      id: 6,
+      type: "multiple-choice",
+      question: "Votre collègue remarque que vous serrez souvent la mâchoire. Cela pourrait indiquer :",
+      options: [
+        "Un problème dentaire uniquement",
+        "Un signal précoce de tension/stress",
+        "Une habitude sans importance",
+        "Un manque de calcium"
+      ],
+      correctAnswer: 1,
+      explanation:
+        "Le serrement de mâchoire est souvent un signal précoce de tension et de stress, même quand on n'en est pas conscient.",
+      practicalTip: "Faites des auto-vérifications régulières : mâchoire, épaules, respiration."
+    },
+    {
+      id: 7,
+      type: "scenario",
+      question: "Scénario : Vous avez mal dormi, vous êtes irritable, et vous avez du mal à vous concentrer sur vos tâches. Que devriez-vous faire ?",
+      options: [
+        "Prendre plus de café et forcer la concentration",
+        "Reconnaître ces signaux de stress et adapter votre journée",
+        "Prendre un jour de congé immédiatement",
+        "Ignorer ces signaux car ils passeront"
+      ],
+      correctAnswer: 1,
+      explanation:
+        "Ces trois signaux (sommeil, émotion, cognition) indiquent un niveau de stress élevé. Les reconnaître permet d'adapter sa journée : pauses plus fréquentes, tâches moins complexes, techniques de relaxation.",
+      practicalTip: "Créez un ‘plan B’ pour les jours où vous détectez plusieurs signaux de stress."
+    },
+
+    // Questions sur l'application des techniques de relaxation
+    {
+      id: 8,
+      type: "multiple-choice",
+      question: "Quelle technique est la plus efficace pour relâcher rapidement les tensions physiques ?",
+      options: [
+        "Regarder la télévision",
+        "Relaxation musculaire progressive (contracter puis relâcher)",
+        "Boire de l'alcool",
+        "Faire du sport intensif"
+      ],
+      correctAnswer: 1,
+      explanation:
+        "La relaxation musculaire progressive, qui consiste à contracter puis relâcher chaque groupe musculaire, est scientifiquement prouvée pour diminuer les tensions physiques.",
+      practicalTip: "5-10 minutes de PMR le soir peuvent améliorer significativement la qualité de votre sommeil."
+    }
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState<{
-    [key: number]: boolean | null;
+    [key: number]: boolean | number | null;
   }>({});
   const [showFeedback, setShowFeedback] = useState<{ [key: number]: boolean }>(
     {},
@@ -358,11 +430,17 @@ function QuizSection() {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
-  const handleAnswer = (questionId: number, answer: boolean) => {
+  const handleAnswer = (questionId: number, answer: boolean | number) => {
     if (showFeedback[questionId]) return; // Prevent multiple answers
 
     const question = questions.find((q) => q.id === questionId);
-    const isCorrect = question?.answer === answer;
+    let isCorrect = false;
+
+    if (question?.type === "true-false") {
+      isCorrect = question.answer === answer;
+    } else if (question?.type === "multiple-choice" || question?.type === "scenario") {
+      isCorrect = question.correctAnswer === answer;
+    }
 
     setUserAnswers((prev) => ({ ...prev, [questionId]: answer }));
     setShowFeedback((prev) => ({ ...prev, [questionId]: true }));
