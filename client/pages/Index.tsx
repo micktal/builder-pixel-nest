@@ -39,6 +39,7 @@ import {
   Heart,
   RefreshCw,
   TrendingDown,
+  TrendingUp,
   AlertTriangle,
   Lightbulb,
   Info,
