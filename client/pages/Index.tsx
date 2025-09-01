@@ -15,6 +15,10 @@ import StressSelfAssessmentSection from "@/components/StressSelfAssessment";
 import DidYouKnow from "@/components/DidYouKnow";
 import FactTrigger from "@/components/FactTrigger";
 import ScientificFacts from "@/components/ScientificFacts";
+import BreathingExercise from "@/components/BreathingExercise";
+import RelaxationTechniques from "@/components/RelaxationTechniques";
+import EarlyWarningSigns from "@/components/EarlyWarningSigns";
+import ProgressTracker from "@/components/ProgressTracker";
 import {
   BookOpen,
   Users,
@@ -48,6 +52,94 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  const [currentSection, setCurrentSection] = useState<string | null>(null);
+
+  // Navigation entre les sections
+  const navigateToSection = (sectionId: string) => {
+    setCurrentSection(sectionId);
+  };
+
+  const backToMain = () => {
+    setCurrentSection(null);
+  };
+
+  // Si on est dans une section spécifique, l'afficher
+  if (currentSection === 'breathing') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-900">Exercices de respiration</h1>
+              <Button onClick={backToMain} variant="outline">
+                <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                Retour au module
+              </Button>
+            </div>
+          </div>
+        </div>
+        <BreathingExercise />
+      </div>
+    );
+  }
+
+  if (currentSection === 'relaxation') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-900">Techniques de relaxation</h1>
+              <Button onClick={backToMain} variant="outline">
+                <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                Retour au module
+              </Button>
+            </div>
+          </div>
+        </div>
+        <RelaxationTechniques />
+      </div>
+    );
+  }
+
+  if (currentSection === 'signals') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-900">Détection des signaux d'alarme</h1>
+              <Button onClick={backToMain} variant="outline">
+                <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                Retour au module
+              </Button>
+            </div>
+          </div>
+        </div>
+        <EarlyWarningSigns />
+      </div>
+    );
+  }
+
+  if (currentSection === 'progress') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-900">Suivi de progression</h1>
+              <Button onClick={backToMain} variant="outline">
+                <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                Retour au module
+              </Button>
+            </div>
+          </div>
+        </div>
+        <ProgressTracker />
+      </div>
+    );
+  }
+
   const features = [
     {
       icon: Shield,
