@@ -195,6 +195,13 @@ export default function Index() {
       <section className="py-20 bg-gradient-to-br from-primary/5 to-purple-500/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="mb-6">
+              <img
+                src="https://images.pexels.com/photos/33675857/pexels-photo-33675857.jpeg"
+                alt="Formation de yoga en Thaïlande - 300 heures"
+                className="w-24 h-16 object-cover rounded-lg mx-auto shadow-lg"
+              />
+            </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Flashcards — Aigu vs Chronique
             </h2>
