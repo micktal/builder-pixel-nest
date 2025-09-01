@@ -721,6 +721,13 @@ function MicroCasesSection() {
     <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
+          <div className="mb-6">
+            <img
+              src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg"
+              alt="Équipe diverse collaborant dans un bureau avec ordinateurs portables et tablettes"
+              className="w-24 h-16 object-cover rounded-lg mx-auto shadow-lg"
+            />
+          </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Micro-cas pratiques
           </h2>
