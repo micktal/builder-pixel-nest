@@ -120,19 +120,31 @@ export default function Index() {
 
       {/* Introduction au stress Section */}
       <section className="py-16 bg-white border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-primary/5 to-purple-500/5 rounded-2xl p-8 lg:p-12 border border-primary/10">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">
               Introduction au stress
             </h2>
-            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed text-center">
-              Le stress est une réaction universelle que chacun expérimente,
-              qu'il soit sur le terrain, en bureau ou en management. Il ne
-              s'agit pas seulement d'une émotion, mais d'un ensemble de réponses
-              physiologiques, cognitives et comportementales que notre organisme
-              met en place lorsqu'il perçoit une situation comme exigeante ou
-              menaçante.
-            </p>
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                  Le stress est une réaction universelle que chacun expérimente,
+                  qu'il soit sur le terrain, en bureau ou en management. Il ne
+                  s'agit pas seulement d'une émotion, mais d'un ensemble de réponses
+                  physiologiques, cognitives et comportementales que notre organisme
+                  met en place lorsqu'il perçoit une situation comme exigeante ou
+                  menaçante.
+                </p>
+              </div>
+              <div className="relative">
+                <img
+                  src="https://images.pexels.com/photos/4226215/pexels-photo-4226215.jpeg"
+                  alt="Femme stressée et surmenée à son bureau en télétravail"
+                  className="w-full h-64 object-cover rounded-xl shadow-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent rounded-xl"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
