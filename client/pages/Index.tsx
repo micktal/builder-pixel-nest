@@ -153,6 +153,13 @@ export default function Index() {
       <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="mb-8">
+              <img
+                src="https://images.pexels.com/photos/17483868/pexels-photo-17483868.jpeg"
+                alt="Cerveau numérique 3D avec couleurs vibrantes"
+                className="w-32 h-20 object-cover rounded-lg mx-auto shadow-lg"
+              />
+            </div>
             <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
               Ce qui compte, ce n'est pas ce qui vous arrive, mais comment vous
               y répondez
