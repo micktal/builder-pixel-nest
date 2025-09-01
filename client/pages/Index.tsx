@@ -819,7 +819,7 @@ function QuizSection({ navigateToSection }: { navigateToSection: (section: strin
     {
       id: 5,
       type: "multiple-choice",
-      question: "Vous ressentez une montée d'anxiété au travail. Quelle est la meilleure strat��gie immédiate ?",
+      question: "Vous ressentez une montée d'anxiété au travail. Quelle est la meilleure stratégie immédiate ?",
       options: [
         "Ignorer la sensation et continuer à travailler",
         "Prendre 3 respirations profondes et identifier la cause",
