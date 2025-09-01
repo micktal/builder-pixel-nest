@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import StressEvolutionSection from "@/components/StressEvolutionSection";
 import StressSelfAssessmentSection from "@/components/StressSelfAssessment";
@@ -53,15 +53,31 @@ import {
 
 export default function Index() {
   const [currentSection, setCurrentSection] = useState<string | null>(null);
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   // Navigation entre les sections
   const navigateToSection = (sectionId: string) => {
+    // Sauvegarder la position de scroll actuelle
+    setScrollPosition(window.scrollY);
     setCurrentSection(sectionId);
   };
 
   const backToMain = () => {
     setCurrentSection(null);
   };
+
+  // Restaurer la position de scroll quand on revient au module principal
+  useEffect(() => {
+    if (currentSection === null && scrollPosition > 0) {
+      // Petit délai pour s'assurer que le DOM est rendu
+      setTimeout(() => {
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  }, [currentSection, scrollPosition]);
 
   // Si on est dans une section spécifique, l'afficher
   if (currentSection === 'breathing') {
