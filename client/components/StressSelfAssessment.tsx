@@ -620,7 +620,7 @@ export default function StressSelfAssessmentSection() {
 
           {/* Disclaimers */}
           <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg text-sm text-yellow-800">
-            <p className="font-medium mb-2">⚠️ Important :</p>
+            <p className="font-medium mb-2">Important :</p>
             <p>
               Cet outil est destiné à l'auto-repérage et ne constitue pas un
               diagnostic médical. En cas de détresse importante ou persistante,
