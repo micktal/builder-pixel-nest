@@ -147,9 +147,6 @@ export default function StressEvolutionSection() {
 
         {/* Progress Bar */}
         <div className="mb-8">
-          <div className="text-center text-sm text-gray-600 mb-2">
-            Progression automatique de la timeline
-          </div>
           <div className="w-full bg-gray-200 rounded-full h-1">
             <div
               className="bg-gradient-to-r from-blue-500 to-purple-500 h-1 rounded-full transition-all duration-100"
@@ -181,7 +178,6 @@ export default function StressEvolutionSection() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">{step.description}</p>
 
                 {/* Step number */}
                 <div className="text-xs text-gray-400 font-medium">
