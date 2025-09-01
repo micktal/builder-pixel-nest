@@ -385,6 +385,13 @@ function QuizSection() {
     <section className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
+          <div className="mb-6">
+            <img
+              src="https://images.pexels.com/photos/7092345/pexels-photo-7092345.jpeg"
+              alt="Instructeur examinant des tests dans une salle de classe"
+              className="w-24 h-16 object-cover rounded-lg mx-auto shadow-lg"
+            />
+          </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Quiz — Comprendre le stress
           </h2>
