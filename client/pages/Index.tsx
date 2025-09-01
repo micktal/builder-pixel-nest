@@ -373,7 +373,7 @@ export default function Index() {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4">Prêt à maîtriser votre stress ?</h3>
                 <p className="text-indigo-100 mb-6">
-                  Commencez par identifier vos signaux personnels, puis pratiquez les techniques qui vous conviennent le mieux.
+                  Développez une approche complète : détection, organisation et suivi pour une gestion durable du stress.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Button
@@ -384,11 +384,11 @@ export default function Index() {
                     1. Identifier mes signaux
                   </Button>
                   <Button
-                    onClick={() => navigateToSection('breathing')}
+                    onClick={() => navigateToSection('timemanagement')}
                     variant="outline"
                     className="bg-white text-indigo-600 hover:bg-indigo-50 border-white"
                   >
-                    2. Pratiquer la respiration
+                    2. Organiser mon temps
                   </Button>
                   <Button
                     onClick={() => navigateToSection('progress')}
