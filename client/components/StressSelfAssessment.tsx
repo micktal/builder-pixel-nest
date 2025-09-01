@@ -311,24 +311,30 @@ export default function StressSelfAssessmentSection() {
 
     tempDiv.innerHTML = `
       <div style="padding: 40px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fef3c7 100%); min-height: 900px;">
-        <!-- Header with fun elements -->
+        <!-- Header with company logo -->
         <div style="text-align: center; margin-bottom: 40px;">
-          <div style="font-size: 60px; margin-bottom: 15px;">🧘‍♀️✨🌈</div>
-          <h1 style="font-size: 36px; color: #1e40af; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
-            Mon Bilan Zen
+          <div style="margin-bottom: 20px;">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F2a0a35359508479d8ae89ef9e31f1265?format=webp&width=800"
+                 alt="Fiducial FPSG"
+                 style="height: 80px; max-width: 300px; object-fit: contain;" />
+          </div>
+          <h1 style="font-size: 36px; color: #166734; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-weight: 700;">
+            Bilan de Gestion du Stress
           </h1>
           <p style="font-size: 18px; color: #6b7280; margin: 10px 0; font-style: italic;">
-            Auto-évaluation du stress • ${date}
+            Auto-évaluation personnalisée • ${date}
           </p>
-          <div style="height: 4px; background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4, #10b981); border-radius: 2px; margin: 20px auto; width: 300px;"></div>
+          <div style="height: 4px; background: linear-gradient(90deg, #166734, #10b981, #06b6d4, #8b5cf6); border-radius: 2px; margin: 20px auto; width: 300px;"></div>
         </div>
 
         <!-- Main result card -->
         <div style="background: ${getLevelGradient(results.level)}; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 3px solid white;">
           <div style="text-align: center;">
-            <div style="font-size: 80px; margin-bottom: 15px;">${getLevelEmoji(results.level)}</div>
+            <div style="margin-bottom: 15px; color: white; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+              ${getLevelIcon(results.level)}
+            </div>
             <h2 style="font-size: 28px; color: white; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-              Niveau de stress : ${results.level === "low" ? "Faible 🎉" : results.level === "moderate" ? "Modéré 💪" : "Élevé 🤗"}
+              Niveau de stress : ${results.level === "low" ? "Faible" : results.level === "moderate" ? "Modéré" : "Élevé"}
             </h2>
             <div style="font-size: 48px; color: white; margin: 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
               ${results.totalScore}/${results.maxScore}
@@ -339,7 +345,7 @@ export default function StressSelfAssessmentSection() {
         <!-- Feedback section -->
         <div style="background: linear-gradient(135deg, #ddd6fe 0%, #c7d2fe 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #8b5cf6;">
           <h3 style="color: #6d28d9; margin: 0 0 15px 0; font-size: 20px; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">💭</span> Votre profil
+            <span style="margin-right: 10px; color: #6d28d9;">${getIconSVG('brain', 24, '#6d28d9')}</span> Votre profil
           </h3>
           <p style="color: #4c1d95; margin: 0; font-size: 16px; line-height: 1.6;">
             ${results.feedback}
@@ -349,7 +355,7 @@ export default function StressSelfAssessmentSection() {
         <!-- Dimension scores -->
         <div style="background: linear-gradient(135deg, #fef7cd 0%, #fef3c7 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #f59e0b;">
           <h3 style="color: #d97706; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">📊</span> Scores par dimension
+            <span style="margin-right: 10px; color: #d97706;">${getIconSVG('barChart', 24, '#d97706')}</span> Scores par dimension
           </h3>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
             ${Object.entries(results.dimensionScores).map(([dimension, score]) => `
@@ -366,7 +372,7 @@ export default function StressSelfAssessmentSection() {
         <!-- Advice section -->
         <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #10b981;">
           <h3 style="color: #059669; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">💡</span> Mes conseils personnalisés
+            <span style="margin-right: 10px; color: #059669;">${getIconSVG('lightbulb', 24, '#059669')}</span> Recommandations personnalisées
           </h3>
           <div style="space-y: 12px;">
             ${results.advice.map((advice, index) => `
@@ -384,25 +390,34 @@ export default function StressSelfAssessmentSection() {
 
         <!-- Motivation section -->
         <div style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #ec4899; text-align: center;">
-          <div style="font-size: 40px; margin-bottom: 15px;">🌟💪🎯</div>
+          <div style="margin-bottom: 15px; color: #be185d; display: flex; justify-content: center; gap: 10px;">
+            ${getIconSVG('award', 32, '#be185d')}
+            ${getIconSVG('target', 32, '#be185d')}
+            ${getIconSVG('users', 32, '#be185d')}
+          </div>
           <h3 style="color: #be185d; margin: 0 0 15px 0; font-size: 20px;">
-            Vous êtes sur la bonne voie !
+            Continuez sur cette lancée !
           </h3>
           <p style="color: #831843; margin: 0; font-size: 16px; line-height: 1.6;">
-            Chaque petit pas compte dans votre gestion du stress. Continuez le module pour découvrir des techniques encore plus efficaces ! 🚀
+            Chaque étape franchie renforce votre maîtrise du stress. Poursuivez le module pour développer des compétences encore plus solides en gestion du bien-être professionnel.
           </p>
         </div>
 
         <!-- Footer -->
         <div style="text-align: center; padding: 20px; border-top: 2px dashed #d1d5db; margin-top: 30px;">
+          <div style="margin-bottom: 15px; color: #6b7280; display: flex; justify-content: center; gap: 15px;">
+            ${getIconSVG('shield', 20, '#6b7280')}
+            ${getIconSVG('heart', 20, '#6b7280')}
+            ${getIconSVG('users', 20, '#6b7280')}
+          </div>
           <p style="color: #6b7280; font-size: 12px; margin: 0 0 10px 0;">
-            ⚠️ Cet outil est destiné à l'auto-repérage et ne constitue pas un diagnostic médical.
+            Cet outil est destiné à l'auto-repérage et ne constitue pas un diagnostic médical.
           </p>
           <p style="color: #6b7280; font-size: 12px; margin: 0;">
             En cas de détresse importante, consultez un professionnel de la santé.
           </p>
-          <div style="margin-top: 15px; font-size: 24px;">
-            🏥💙🤝
+          <div style="margin-top: 15px; text-align: center;">
+            <strong style="color: #166734; font-size: 14px;">FIDUCIAL FPSG</strong>
           </div>
         </div>
       </div>
