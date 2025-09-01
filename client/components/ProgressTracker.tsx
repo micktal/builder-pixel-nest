@@ -29,6 +29,8 @@ import {
   Users,
   Save,
 } from "lucide-react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 interface ProgressData {
   moduleStarted: string;
