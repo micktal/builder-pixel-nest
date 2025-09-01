@@ -570,7 +570,9 @@ export default function StressSelfAssessmentSection() {
                   <RotateCcw className="w-4 h-4 mr-2" />
                   Revoir mes réponses
                 </Button>
-                <Button className="flex-1">Continuer le module</Button>
+                <Button className="flex-1 bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white font-semibold shadow-lg transform transition-transform hover:scale-105">
+                  🚀 Continuer le module
+                </Button>
               </div>
             </CardContent>
           </Card>
