@@ -307,7 +307,7 @@ export default function Index() {
     },
     {
       icon: Heart,
-      title: "Les réactions physiologiques",
+      title: "Les r��actions physiologiques",
       description:
         "Lorsqu'une situation est perçue comme stressante, le cerveau déclenche la sécrétion d'hormones comme l'adrénaline et le cortisol. Ces substances augmentent la fréquence cardiaque, la tension artérielle et mobilisent les réserves d'énergie. Si cette activation perdure, elle devient nocive.",
     },
@@ -410,16 +410,9 @@ export default function Index() {
                 </video>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                    <Clock className="w-4 h-4" />
-                    <span>Durée: ~5 minutes</span>
-                  </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Les mécanismes biologiques du stress
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    Une explication claire et accessible des processus qui se déclenchent dans votre corps face au stress.
-                  </p>
                 </div>
               </div>
             </div>
@@ -1568,7 +1561,7 @@ function MicroCasesSection() {
     {
       id: 3,
       situation:
-        "En réunion, un collègue critique publiquement votre travail devant toute l'équipe. Quelle est votre réaction ?",
+        "En réunion, un collègue critique publiquement votre travail devant toute l'équipe. Quelle est votre r��action ?",
       options: [
         {
           text: "Vous répondez immédiatement pour vous défendre",
@@ -1602,7 +1595,7 @@ function MicroCasesSection() {
             "L'évitement augmente l'anxiété. Il vaut mieux agir rapidement pour corriger l'erreur.",
         },
         {
-          text: "Vous informez immédiatement votre responsable et proposez une solution",
+          text: "Vous informez imm��diatement votre responsable et proposez une solution",
           isOptimal: true,
           feedback:
             "Excellente réaction ! La transparence rapide permet de limiter les dégâts et montre votre responsabilité.",
