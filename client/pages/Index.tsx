@@ -258,6 +258,13 @@ export default function Index() {
 
       {/* Floating DidYouKnow sidebar */}
       <DidYouKnow mode="sidebar" trigger="auto" autoInterval={10000} />
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8 text-center mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-lg">Module 1- comprendre le stress | FPSG 2025</p>
+        </div>
+      </footer>
     </div>
   );
 }
