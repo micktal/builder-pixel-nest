@@ -355,7 +355,7 @@ export default function Index() {
           <div className="text-center">
             <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-0 max-w-2xl mx-auto">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Pr��t à maîtriser votre stress ?</h3>
+                <h3 className="text-2xl font-bold mb-4">Prêt à maîtriser votre stress ?</h3>
                 <p className="text-indigo-100 mb-6">
                   Commencez par identifier vos signaux personnels, puis pratiquez les techniques qui vous conviennent le mieux.
                 </p>
@@ -565,6 +565,128 @@ export default function Index() {
       {/* Self Assessment Section */}
       <StressSelfAssessmentSection />
 
+      {/* Section finale - Votre parcours personnalisé */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Créez votre parcours personnalisé
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Maintenant que vous avez les clés, définissez votre stratégie personnelle de gestion du stress.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Étape 1 */}
+            <Card className="text-center border-2 border-orange-200 hover:border-orange-300 transition-all">
+              <CardHeader>
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-orange-600">1</span>
+                </div>
+                <CardTitle className="text-xl text-gray-900">Identifiez vos signaux</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Découvrez vos signaux d'alarme personnels et créez votre système de détection précoce.
+                </p>
+                <Button
+                  onClick={() => navigateToSection('signals')}
+                  className="w-full bg-orange-600 hover:bg-orange-700"
+                >
+                  <Target className="w-4 h-4 mr-2" />
+                  Commencer l'évaluation
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Étape 2 */}
+            <Card className="text-center border-2 border-blue-200 hover:border-blue-300 transition-all">
+              <CardHeader>
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">2</span>
+                </div>
+                <CardTitle className="text-xl text-gray-900">Pratiquez les techniques</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Maîtrisez les techniques de respiration et de relaxation qui vous conviennent.
+                </p>
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => navigateToSection('breathing')}
+                    size="sm"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700"
+                  >
+                    <Wind className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    onClick={() => navigateToSection('relaxation')}
+                    size="sm"
+                    className="flex-1 bg-purple-600 hover:bg-purple-700"
+                  >
+                    <Brain className="w-4 h-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Étape 3 */}
+            <Card className="text-center border-2 border-green-200 hover:border-green-300 transition-all">
+              <CardHeader>
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-green-600">3</span>
+                </div>
+                <CardTitle className="text-xl text-gray-900">Suivez vos progrès</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Définissez des objectifs, suivez vos progrès et célébrez vos succès.
+                </p>
+                <Button
+                  onClick={() => navigateToSection('progress')}
+                  className="w-full bg-green-600 hover:bg-green-700"
+                >
+                  <Award className="w-4 h-4 mr-2" />
+                  Accéder au suivi
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Encouragement final */}
+          <Card className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-0">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4">
+                Votre voyage vers la maîtrise du stress commence maintenant
+              </h3>
+              <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
+                Rappelez-vous : chaque petit pas compte. La régularité dans la pratique est plus importante que la durée.
+                Commencez dès aujourd'hui, même avec 2 minutes par jour.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button
+                  onClick={() => navigateToSection('breathing')}
+                  size="lg"
+                  className="bg-white text-purple-600 hover:bg-purple-50 border-0"
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  Commencer maintenant
+                </Button>
+                <Button
+                  onClick={() => navigateToSection('progress')}
+                  size="lg"
+                  className="bg-purple-500 hover:bg-purple-400 border-0"
+                >
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Voir tous les outils
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Floating DidYouKnow sidebar */}
       <DidYouKnow mode="sidebar" trigger="auto" autoInterval={10000} />
 
@@ -578,7 +700,7 @@ export default function Index() {
   );
 }
 
-function QuizSection() {
+function QuizSection({ navigateToSection }: { navigateToSection: (section: string) => void }) {
   const questions = [
     // Questions théoriques de base
     {
@@ -788,10 +910,16 @@ function QuizSection() {
                 Votre score: {score}/{questions.length} (
                 {Math.round((score / questions.length) * 100)}%)
               </p>
-              <Button onClick={resetQuiz} className="mt-4">
-                <RotateCcw className="w-4 h-4 mr-2" />
-                Recommencer
-              </Button>
+              <div className="flex gap-3 justify-center">
+                <Button onClick={resetQuiz} variant="outline">
+                  <RotateCcw className="w-4 h-4 mr-2" />
+                  Recommencer
+                </Button>
+                <Button onClick={() => navigateToSection('breathing')} className="bg-blue-600 hover:bg-blue-700">
+                  <Wind className="w-4 h-4 mr-2" />
+                  Pratiquer maintenant
+                </Button>
+              </div>
             </CardContent>
           </Card>
         )}
