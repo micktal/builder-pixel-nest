@@ -461,7 +461,7 @@ export default function StressSelfAssessmentSection() {
       }
 
       // Download PDF
-      pdf.save(`mon-bilan-zen-stress-${date.replace(/\//g, "-")}.pdf`);
+      pdf.save(`bilan-gestion-stress-fiducial-${date.replace(/\//g, "-")}.pdf`);
     } catch (error) {
       console.error("Error generating PDF:", error);
       // Fallback to text download
