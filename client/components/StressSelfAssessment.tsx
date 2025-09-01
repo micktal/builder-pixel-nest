@@ -79,7 +79,7 @@ const questions: Question[] = [
   },
   {
     id: "q10",
-    text: 'Je me surprends �� penser "je n\'y arriverai pas".',
+    text: 'Je me surprends à penser "je n\'y arriverai pas".',
     dimension: "cognitive",
   },
 ];
@@ -251,43 +251,193 @@ export default function StressSelfAssessmentSection() {
     localStorage.removeItem("stress-assessment");
   };
 
-  const handleDownloadResults = () => {
+  const handleDownloadResults = async () => {
     const results = calculateResults();
     const date = new Date().toLocaleDateString("fr-FR");
 
-    const content = `
-AUTO-ÉVALUATION DU STRESS
-Date: ${date}
+    // Create a temporary div with our PDF content
+    const tempDiv = document.createElement("div");
+    tempDiv.style.position = "absolute";
+    tempDiv.style.left = "-9999px";
+    tempDiv.style.top = "-9999px";
+    tempDiv.style.width = "800px";
+    tempDiv.style.background = "#ffffff";
+    tempDiv.style.fontFamily = "Arial, sans-serif";
 
-RÉSULTATS:
-Score total: ${results.totalScore}/${results.maxScore}
-Niveau: ${results.level === "low" ? "Faible" : results.level === "moderate" ? "Modéré" : "Élevé"}
+    // Get level emoji and colors
+    const getLevelEmoji = (level: string) => {
+      switch (level) {
+        case "low": return "🌟";
+        case "moderate": return "⚡";
+        case "high": return "🔥";
+        default: return "📊";
+      }
+    };
 
-SCORES PAR DIMENSION:
-${Object.entries(results.dimensionScores)
-  .map(([dim, score]) => `${dim}: ${score}/9`)
-  .join("\n")}
+    const getLevelGradient = (level: string) => {
+      switch (level) {
+        case "low": return "linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%)";
+        case "moderate": return "linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)";
+        case "high": return "linear-gradient(135deg, #fecaca 0%, #f87171 100%)";
+        default: return "linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%)";
+      }
+    };
 
-FEEDBACK:
-${results.feedback}
+    tempDiv.innerHTML = `
+      <div style="padding: 40px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fef3c7 100%); min-height: 900px;">
+        <!-- Header with fun elements -->
+        <div style="text-align: center; margin-bottom: 40px;">
+          <div style="font-size: 60px; margin-bottom: 15px;">🧘‍♀️✨🌈</div>
+          <h1 style="font-size: 36px; color: #1e40af; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+            Mon Bilan Zen
+          </h1>
+          <p style="font-size: 18px; color: #6b7280; margin: 10px 0; font-style: italic;">
+            Auto-évaluation du stress • ${date}
+          </p>
+          <div style="height: 4px; background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4, #10b981); border-radius: 2px; margin: 20px auto; width: 300px;"></div>
+        </div>
 
-CONSEILS PERSONNALISÉS:
-${results.advice.map((advice, i) => `${i + 1}. ${advice}`).join("\n")}
+        <!-- Main result card -->
+        <div style="background: ${getLevelGradient(results.level)}; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 3px solid white;">
+          <div style="text-align: center;">
+            <div style="font-size: 80px; margin-bottom: 15px;">${getLevelEmoji(results.level)}</div>
+            <h2 style="font-size: 28px; color: white; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+              Niveau de stress : ${results.level === "low" ? "Faible 🎉" : results.level === "moderate" ? "Modéré 💪" : "Élevé 🤗"}
+            </h2>
+            <div style="font-size: 48px; color: white; margin: 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+              ${results.totalScore}/${results.maxScore}
+            </div>
+          </div>
+        </div>
 
-DISCLAIMER:
-Cet outil est destiné à l'auto-repérage et ne constitue pas un diagnostic médical.
-En cas de détresse importante, consultez un professionnel de la santé.
+        <!-- Feedback section -->
+        <div style="background: linear-gradient(135deg, #ddd6fe 0%, #c7d2fe 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #8b5cf6;">
+          <h3 style="color: #6d28d9; margin: 0 0 15px 0; font-size: 20px; display: flex; align-items: center;">
+            <span style="margin-right: 10px;">💭</span> Votre profil
+          </h3>
+          <p style="color: #4c1d95; margin: 0; font-size: 16px; line-height: 1.6;">
+            ${results.feedback}
+          </p>
+        </div>
+
+        <!-- Dimension scores -->
+        <div style="background: linear-gradient(135deg, #fef7cd 0%, #fef3c7 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #f59e0b;">
+          <h3 style="color: #d97706; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+            <span style="margin-right: 10px;">📊</span> Scores par dimension
+          </h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            ${Object.entries(results.dimensionScores).map(([dimension, score]) => `
+              <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #374151; font-weight: bold; font-size: 14px;">${dimension}</span>
+                <span style="color: ${dimension === results.highestDimension ? "#ef4444" : "#6b7280"}; font-weight: bold; font-size: 16px;">
+                  ${score}/9
+                </span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+
+        <!-- Advice section -->
+        <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #10b981;">
+          <h3 style="color: #059669; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+            <span style="margin-right: 10px;">💡</span> Mes conseils personnalisés
+          </h3>
+          <div style="space-y: 12px;">
+            ${results.advice.map((advice, index) => `
+              <div style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                <div style="background: #10b981; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; margin-right: 12px; flex-shrink: 0; margin-top: 2px;">
+                  ${index + 1}
+                </div>
+                <p style="color: #065f46; margin: 0; font-size: 14px; line-height: 1.5;">
+                  ${advice}
+                </p>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+
+        <!-- Motivation section -->
+        <div style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #ec4899; text-align: center;">
+          <div style="font-size: 40px; margin-bottom: 15px;">🌟💪🎯</div>
+          <h3 style="color: #be185d; margin: 0 0 15px 0; font-size: 20px;">
+            Vous êtes sur la bonne voie !
+          </h3>
+          <p style="color: #831843; margin: 0; font-size: 16px; line-height: 1.6;">
+            Chaque petit pas compte dans votre gestion du stress. Continuez le module pour découvrir des techniques encore plus efficaces ! 🚀
+          </p>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 20px; border-top: 2px dashed #d1d5db; margin-top: 30px;">
+          <p style="color: #6b7280; font-size: 12px; margin: 0 0 10px 0;">
+            ⚠️ Cet outil est destiné à l'auto-repérage et ne constitue pas un diagnostic médical.
+          </p>
+          <p style="color: #6b7280; font-size: 12px; margin: 0;">
+            En cas de détresse importante, consultez un professionnel de la santé.
+          </p>
+          <div style="margin-top: 15px; font-size: 24px;">
+            🏥💙🤝
+          </div>
+        </div>
+      </div>
     `;
 
-    const blob = new Blob([content], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `auto-evaluation-stress-${date.replace(/\//g, "-")}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    document.body.appendChild(tempDiv);
+
+    try {
+      // Convert HTML to canvas
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: "#ffffff"
+      });
+
+      // Create PDF
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4"
+      });
+
+      const imgData = canvas.toDataURL("image/png");
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+
+      let position = 0;
+
+      // Add image to PDF (handle multiple pages if needed)
+      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      // Download PDF
+      pdf.save(`mon-bilan-zen-stress-${date.replace(/\//g, "-")}.pdf`);
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      // Fallback to text download
+      const content = `AUTO-ÉVALUATION DU STRESS\nDate: ${date}\n\nScore: ${results.totalScore}/${results.maxScore}\nNiveau: ${results.level}\n\n${results.feedback}`;
+      const blob = new Blob([content], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `auto-evaluation-stress-${date.replace(/\//g, "-")}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } finally {
+      // Clean up
+      document.body.removeChild(tempDiv);
+    }
   };
 
   const getProgressPercentage = () => {
