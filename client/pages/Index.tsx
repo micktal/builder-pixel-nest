@@ -665,31 +665,31 @@ export default function Index() {
       <QuizSection navigateToSection={navigateToSection} />
 
       {/* Appel à l'action après quiz */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600">
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-indigo-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Maintenant, passons à la pratique !
+              Passons à l'organisation pratique !
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre les techniques concrètes de gestion du stress.
+            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre à organiser votre quotidien pour prévenir le stress.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                onClick={() => navigateToSection('breathing')}
+                onClick={() => navigateToSection('timemanagement')}
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 border-0"
+                className="bg-white text-purple-600 hover:bg-purple-50 border-0"
               >
-                <Wind className="w-5 h-5 mr-2" />
-                Exercices de respiration
+                <Clock className="w-5 h-5 mr-2" />
+                Gestion du temps
               </Button>
               <Button
-                onClick={() => navigateToSection('relaxation')}
+                onClick={() => navigateToSection('signals')}
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 border-0"
+                className="bg-white text-purple-600 hover:bg-purple-50 border-0"
               >
-                <Brain className="w-5 h-5 mr-2" />
-                Techniques de relaxation
+                <Target className="w-5 h-5 mr-2" />
+                Détecter mes signaux
               </Button>
             </div>
           </div>
