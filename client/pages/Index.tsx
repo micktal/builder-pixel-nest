@@ -381,6 +381,174 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Video Section - Comprendre les mécanismes du stress */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Comprendre les mécanismes du stress
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Découvrez en vidéo comment votre corps réagit au stress et apprenez les bases scientifiques pour mieux le gérer.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Video Player */}
+            <div className="lg:order-1">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <video
+                  controls
+                  className="w-full h-auto"
+                  src="https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F941a0a573e8b490185eaf723571e1efc?alt=media&token=9496640c-dfe3-480e-b730-cc41e4d055c8&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec"
+                  aria-label="Vidéo explicative sur les mécanismes du stress"
+                  poster="https://images.pexels.com/photos/17483868/pexels-photo-17483868.jpeg"
+                >
+                  <p className="text-gray-600 p-4">
+                    Votre navigateur ne supporte pas les vidéos HTML5. Vous pouvez télécharger la vidéo en cliquant sur ce lien.
+                  </p>
+                </video>
+
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    <Clock className="w-4 h-4" />
+                    <span>Durée: ~5 minutes</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Les mécanismes biologiques du stress
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Une explication claire et accessible des processus qui se déclenchent dans votre corps face au stress.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Transcription */}
+            <div className="lg:order-2">
+              <Card className="bg-white border-2 border-blue-200 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-blue-100 to-indigo-100">
+                  <CardTitle className="flex items-center gap-2 text-blue-900">
+                    <Headphones className="w-5 h-5" />
+                    Transcription pour l'accessibilité
+                  </CardTitle>
+                  <p className="text-sm text-blue-700">
+                    Dialogue de la vidéo pour les personnes malentendantes
+                  </p>
+                </CardHeader>
+                <CardContent className="p-6 max-h-96 overflow-y-auto">
+                  <div className="space-y-4 text-sm">
+                    <div className="border-l-4 border-blue-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-blue-600">Question :</span> Le stress est en fait la réaction naturelle de notre corps à des menaces ou à des défis perçus ?
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-green-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-green-600">Réponse :</span> Oui, tout commence par un élément déclencheur, comme un bruit soudain ou un e-mail urgent, qui indique à notre cerveau de réagir.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-blue-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-blue-600">Question :</span> J'ai entendu dire que l'amygdale joue un rôle clé en s'illuminant et en envoyant des signaux d'alerte dans tout le corps.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-green-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-green-600">Réponse :</span> Exactement, et cela provoque la libération d'adrénaline et de cortisol, des hormones qui accélèrent le cœur et la respiration.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-blue-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-blue-600">Observation :</span> Cela explique pourquoi nous transpirons parfois ou sentons notre cœur battre la chamade lorsque nous sommes stressés.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-green-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-green-600">Réponse :</span> Le stress n'est cependant pas toujours une mauvaise chose ; il peut nous aider à nous concentrer, comme un athlète avant une course, mais trop de stress peut nous submerger.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-blue-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-blue-600">Question :</span> Le stress chronique peut donc épuiser notre corps au fil du temps ?
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-green-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-green-600">Réponse :</span> Oui, un stress prolongé peut épuiser les systèmes de l'organisme et entraîner divers problèmes de santé.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-blue-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-blue-600">Réflexion :</span> Comprendre ces mécanismes semble crucial pour comprendre comment le stress nous affecte au quotidien.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-green-400 pl-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold text-green-600">Conclusion :</span> Absolument, savoir comment fonctionne le stress est la première étape pour gérer efficacement son impact. Alors, apprenons ensemble à le détecter et à le gérer.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Points clés de la vidéo */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              Points clés à retenir
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center border-2 border-amber-200 hover:border-amber-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Brain className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Déclencheur</h4>
+                  <p className="text-gray-600 text-sm">
+                    Un stimulus active l'amygdale qui déclenche la réaction de stress
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center border-2 border-red-200 hover:border-red-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Heart className="w-6 h-6 text-red-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Réaction physique</h4>
+                  <p className="text-gray-600 text-sm">
+                    Libération d'hormones qui accélèrent le rythme cardiaque et la respiration
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center border-2 border-purple-200 hover:border-purple-300 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Adaptation</h4>
+                  <p className="text-gray-600 text-sm">
+                    Le stress peut être bénéfique à court terme mais épuisant sur la durée
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Outils pratiques Section */}
       <section className="py-20 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -672,7 +840,7 @@ export default function Index() {
               Passons à l'organisation pratique !
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre à organiser votre quotidien pour prévenir le stress.
+              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre �� organiser votre quotidien pour prévenir le stress.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
