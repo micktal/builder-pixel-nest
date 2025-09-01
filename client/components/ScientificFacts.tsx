@@ -76,7 +76,7 @@ const scientificFacts: ScientificFact[] = [
       "La réaction de stress active immédiatement le système nerveux sympathique, libérant adrénaline et noradrénaline. Ces hormones accélèrent le rythme cardiaque de 60-80 bpm au repos jusqu'à 100-120 bpm, et peuvent faire grimper la tension de 20-40 mmHg en moins de 30 secondes. Le stress chronique est associé à une augmentation de 40% du risque de maladie coronarienne.",
     source: "Steptoe & Kivimäki, 2012 - Circulation Research",
     detailedSource: {
-      authors: "Steptoe A, Kivimäki M",
+      authors: "Steptoe A, Kivim��ki M",
       title: "Stress and cardiovascular disease",
       journal: "Circulation Research",
       year: 2012,
@@ -381,16 +381,54 @@ export default function ScientificFacts() {
                         {fact.fullText}
                       </p>
 
-                      <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-gray-200/50">
-                        <div className="flex items-start space-x-2">
-                          <ExternalLink className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="text-xs font-semibold text-blue-800 mb-1">
-                              Source scientifique :
-                            </p>
-                            <p className="text-xs text-blue-700">
-                              {fact.source}
-                            </p>
+                      <div className="bg-white/70 backdrop-blur-sm p-4 rounded-lg border border-gray-200/50">
+                        <div className="space-y-3">
+                          <div className="flex items-start space-x-2">
+                            <ExternalLink className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                            <div className="flex-1">
+                              <p className="text-xs font-semibold text-blue-800 mb-1">
+                                Source scientifique :
+                              </p>
+                              <p className="text-xs text-blue-700 font-medium">
+                                {fact.detailedSource.authors} ({fact.detailedSource.year})
+                              </p>
+                              <p className="text-xs text-blue-600 italic">
+                                {fact.detailedSource.title}
+                              </p>
+                              <p className="text-xs text-blue-600">
+                                {fact.detailedSource.journal}
+                                {fact.detailedSource.volume && `, ${fact.detailedSource.volume}`}
+                                {fact.detailedSource.pages && `, ${fact.detailedSource.pages}`}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* DOI and PMID links */}
+                          <div className="flex flex-wrap gap-2 pt-2 border-t border-blue-100">
+                            {fact.detailedSource.doi && (
+                              <a
+                                href={`https://doi.org/${fact.detailedSource.doi}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 underline"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Link className="w-3 h-3" />
+                                DOI: {fact.detailedSource.doi}
+                              </a>
+                            )}
+                            {fact.detailedSource.pmid && (
+                              <a
+                                href={`https://pubmed.ncbi.nlm.nih.gov/${fact.detailedSource.pmid}/`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 underline"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Search className="w-3 h-3" />
+                                PubMed: {fact.detailedSource.pmid}
+                              </a>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -411,16 +449,133 @@ export default function ScientificFacts() {
           })}
         </div>
 
-        {/* Additional info and CTA */}
-        <div className="text-center">
+        {/* References and Additional Info */}
+        <div className="space-y-8">
+          {/* Complete References Section */}
+          <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-2xl text-gray-900">
+                <BookOpen className="w-6 h-6" />
+                Références scientifiques complètes
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-6">
+                {scientificFacts.map((fact, index) => (
+                  <div key={fact.id} className="bg-white/70 backdrop-blur-sm p-4 rounded-lg border border-white/50">
+                    <div className="flex items-start gap-3">
+                      <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                        {index + 1}
+                      </span>
+                      <div className="flex-1 space-y-2">
+                        <h4 className="font-semibold text-gray-900 text-sm">{fact.title}</h4>
+                        <div className="text-xs text-gray-700 space-y-1">
+                          <p className="font-medium">
+                            {fact.detailedSource.authors} ({fact.detailedSource.year})
+                          </p>
+                          <p className="italic">
+                            {fact.detailedSource.title}
+                          </p>
+                          <p className="font-medium text-blue-700">
+                            {fact.detailedSource.journal}
+                            {fact.detailedSource.volume && `, ${fact.detailedSource.volume}`}
+                            {fact.detailedSource.pages && `, ${fact.detailedSource.pages}`}
+                          </p>
+                          <div className="flex flex-wrap gap-2 pt-1">
+                            {fact.detailedSource.doi && (
+                              <a
+                                href={`https://doi.org/${fact.detailedSource.doi}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 underline"
+                              >
+                                <Link className="w-3 h-3" />
+                                DOI
+                              </a>
+                            )}
+                            {fact.detailedSource.pmid && (
+                              <a
+                                href={`https://pubmed.ncbi.nlm.nih.gov/${fact.detailedSource.pmid}/`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 underline"
+                              >
+                                <Search className="w-3 h-3" />
+                                PubMed
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Export References */}
+              <div className="mt-6 pt-6 border-t border-blue-200">
+                <div className="flex justify-center">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      const references = scientificFacts.map((fact, index) =>
+                        `${index + 1}. ${fact.detailedSource.authors} (${fact.detailedSource.year}). ${fact.detailedSource.title}. ${fact.detailedSource.journal}${fact.detailedSource.volume ? `, ${fact.detailedSource.volume}` : ''}${fact.detailedSource.pages ? `, ${fact.detailedSource.pages}` : ''}${fact.detailedSource.doi ? `. DOI: ${fact.detailedSource.doi}` : ''}`
+                      ).join('\n\n');
+
+                      const blob = new Blob([`Références scientifiques - Module Stress\n\n${references}`], { type: 'text/plain' });
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.download = 'references-scientifiques-stress.txt';
+                      a.click();
+                      URL.revokeObjectURL(url);
+                    }}
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Télécharger les références
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Categories Overview */}
+          <Card className="bg-gradient-to-br from-gray-50 to-slate-50 border-gray-200">
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+                Domaines scientifiques couverts
+              </h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                {[
+                  { category: "neurobiologie", count: scientificFacts.filter(f => f.category === "neurobiologie").length, color: "bg-purple-100 text-purple-800" },
+                  { category: "cardiologie", count: scientificFacts.filter(f => f.category === "cardiologie").length, color: "bg-red-100 text-red-800" },
+                  { category: "immunologie", count: scientificFacts.filter(f => f.category === "immunologie").length, color: "bg-blue-100 text-blue-800" },
+                  { category: "endocrinologie", count: scientificFacts.filter(f => f.category === "endocrinologie").length, color: "bg-orange-100 text-orange-800" },
+                  { category: "techniques", count: scientificFacts.filter(f => f.category === "techniques").length, color: "bg-green-100 text-green-800" },
+                  { category: "psychologie", count: scientificFacts.filter(f => f.category === "psychologie").length, color: "bg-gray-100 text-gray-800" },
+                ].filter(item => item.count > 0).map(item => (
+                  <div key={item.category} className="text-center">
+                    <div className={`${item.color} rounded-lg p-3 mb-2`}>
+                      <div className="text-2xl font-bold">{item.count}</div>
+                      <div className="text-sm font-medium capitalize">{item.category}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Disclaimer */}
-          <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg text-sm text-yellow-800 max-w-2xl mx-auto">
-            <p className="font-medium mb-2">⚠️ Information scientifique :</p>
-            <p>
-              Ces données sont à titre informatif et éducatif. Elles ne
-              remplacent pas un avis médical professionnel. En cas de problèmes
-              de santé liés au stress, consultez un professionnel de la santé.
-            </p>
+          <div className="text-center">
+            <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg text-sm text-yellow-800 max-w-2xl mx-auto">
+              <p className="font-medium mb-2">⚠️ Information scientifique :</p>
+              <p>
+                Ces données sont à titre informatif et éducatif. Elles ne
+                remplacent pas un avis médical professionnel. En cas de problèmes
+                de santé liés au stress, consultez un professionnel de la santé.
+              </p>
+            </div>
           </div>
         </div>
       </div>
