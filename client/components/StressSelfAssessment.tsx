@@ -11,6 +11,16 @@ import {
   AlertCircle,
   AlertTriangle,
   Clock,
+  Brain,
+  Heart,
+  Shield,
+  Target,
+  TrendingUp,
+  Award,
+  Lightbulb,
+  BarChart3,
+  Users,
+  FileText,
 } from "lucide-react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
