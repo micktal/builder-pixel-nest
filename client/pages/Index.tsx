@@ -967,56 +967,11 @@ export default function Index() {
 
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12 mt-16">
+      <footer className="bg-gray-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Module 1 - Comprendre le stress</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Un parcours complet pour maîtriser les fondamentaux du stress et acquérir des techniques pratiques de gestion.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Outils pratiques</h3>
-              <div className="space-y-2">
-                <button
-                  onClick={() => navigateToSection('breathing')}
-                  className="block text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  • Exercices de respiration
-                </button>
-                <button
-                  onClick={() => navigateToSection('relaxation')}
-                  className="block text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  • Techniques de relaxation
-                </button>
-                <button
-                  onClick={() => navigateToSection('signals')}
-                  className="block text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  • Détection des signaux
-                </button>
-                <button
-                  onClick={() => navigateToSection('progress')}
-                  className="block text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  • Suivi de progression
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contenu théorique</h3>
-              <div className="space-y-2 text-sm text-gray-300">
-                <p>• Mécanismes du stress</p>
-                <p>• Signaux d'alarme</p>
-                <p>• Faits scientifiques</p>
-                <p>• Quiz interactif</p>
-                <p>• Micro-cas pratiques</p>
-              </div>
-            </div>
+            <div />
+            <div />
           </div>
 
           <div className="border-t border-gray-700 pt-8 text-center">
