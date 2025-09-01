@@ -95,8 +95,10 @@ export default function Index() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-              Module 1 –{" "}
-              <span className="text-primary">Comprendre le stress</span>
+              <span style={{color: "rgb(144, 19, 254)"}}>Module 1 –</span>{" "}
+              <span style={{color: "rgb(144, 19, 254)"}}>
+                Comprendre le stress
+              </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Le stress est un signal, pas une condamnation. Apprenez à
