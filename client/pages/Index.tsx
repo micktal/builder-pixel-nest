@@ -687,8 +687,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Floating DidYouKnow sidebar */}
-      <DidYouKnow mode="sidebar" trigger="auto" autoInterval={10000} />
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 mt-16">
