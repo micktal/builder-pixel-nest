@@ -212,28 +212,246 @@ export default function ProgressTracker() {
     }, 0);
   };
 
-  const exportProgress = () => {
-    const report = {
-      date: new Date().toLocaleDateString(),
-      moduleProgress: `${calculateModuleProgress()}%`,
-      completedSections: progressData.completedSections,
-      practiceStats: {
-        breathingSessions: progressData.breathingSessions,
-        relaxationSessions: progressData.relaxationSessions,
-        totalPracticeTime: `${progressData.totalPracticeTime} minutes`,
-        practiceStreak: `${progressData.practiceStreak} jours`
-      },
-      goals: progressData.personalGoals,
-      achievements: progressData.achievements
+  const exportProgress = async () => {
+    const date = new Date().toLocaleDateString("fr-FR");
+    const moduleProgress = calculateModuleProgress();
+
+    // Create a temporary div with our PDF content
+    const tempDiv = document.createElement("div");
+    tempDiv.style.position = "absolute";
+    tempDiv.style.left = "-9999px";
+    tempDiv.style.top = "-9999px";
+    tempDiv.style.width = "800px";
+    tempDiv.style.background = "#ffffff";
+    tempDiv.style.fontFamily = "Arial, sans-serif";
+
+    // SVG Icons helpers
+    const getIconSVG = (iconName: string, size = 24, color = "currentColor") => {
+      const icons = {
+        trophy: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>`,
+        target: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+        wind: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>`,
+        brain: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.4 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>`,
+        book: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+        star: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>`,
+        trendingUp: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/><polyline points="16,7 22,7 22,13"/></svg>`
+      };
+      return icons[iconName] || icons.star;
     };
-    
-    const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `rapport-progression-stress-${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
+
+    tempDiv.innerHTML = `
+      <div style="padding: 40px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f3e8ff 100%); min-height: 900px;">
+        <!-- Header with company logo -->
+        <div style="text-align: center; margin-bottom: 40px;">
+          <div style="margin-bottom: 20px;">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F2a0a35359508479d8ae89ef9e31f1265?format=webp&width=800"
+                 alt="Fiducial FPSG"
+                 style="height: 80px; max-width: 300px; object-fit: contain;" />
+          </div>
+          <h1 style="font-size: 36px; color: #166734; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-weight: 700;">
+            Rapport de Progression
+          </h1>
+          <p style="font-size: 18px; color: #6b7280; margin: 10px 0; font-style: italic;">
+            Module Gestion du Stress • ${date}
+          </p>
+          <div style="height: 4px; background: linear-gradient(90deg, #166734, #10b981, #06b6d4, #8b5cf6); border-radius: 2px; margin: 20px auto; width: 300px;"></div>
+        </div>
+
+        <!-- Progress Overview -->
+        <div style="background: linear-gradient(135deg, #ddd6fe 0%, #c7d2fe 100%); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 3px solid white;">
+          <div style="text-align: center;">
+            <div style="margin-bottom: 15px; color: #6d28d9; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
+              ${getIconSVG('trophy', 80, '#6d28d9')}
+            </div>
+            <h2 style="font-size: 28px; color: #6d28d9; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+              Module complété à ${moduleProgress}%
+            </h2>
+            <div style="font-size: 18px; color: #4c1d95; margin: 15px 0;">
+              ${progressData.completedSections.length}/${modulesSections.length} sections terminées
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+          <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-radius: 15px; padding: 25px; border-left: 6px solid #10b981;">
+            <h3 style="color: #059669; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+              <span style="margin-right: 10px; color: #059669;">${getIconSVG('wind', 24, '#059669')}</span> Pratique respiratoire
+            </h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+              <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #059669;">${progressData.breathingSessions}</div>
+                <div style="font-size: 12px; color: #065f46;">Séances</div>
+              </div>
+              <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #059669;">${progressData.totalPracticeTime}</div>
+                <div style="font-size: 12px; color: #065f46;">Minutes</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #fef7cd 0%, #fef3c7 100%); border-radius: 15px; padding: 25px; border-left: 6px solid #f59e0b;">
+            <h3 style="color: #d97706; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+              <span style="margin-right: 10px; color: #d97706;">${getIconSVG('brain', 24, '#d97706')}</span> Bien-être mental
+            </h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+              <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #d97706;">${progressData.relaxationSessions}</div>
+                <div style="font-size: 12px; color: #92400e;">Relaxations</div>
+              </div>
+              <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #d97706;">${progressData.practiceStreak}</div>
+                <div style="font-size: 12px; color: #92400e;">Jours consécutifs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #ec4899;">
+          <h3 style="color: #be185d; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+            <span style="margin-right: 10px; color: #be185d;">${getIconSVG('trendingUp', 24, '#be185d')}</span> Progression du module
+          </h3>
+          <div style="background: white; border-radius: 10px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span style="color: #374151; font-weight: bold;">Avancement</span>
+              <span style="color: #be185d; font-weight: bold;">${moduleProgress}%</span>
+            </div>
+            <div style="width: 100%; height: 20px; background: #f3f4f6; border-radius: 10px; overflow: hidden;">
+              <div style="height: 100%; background: linear-gradient(90deg, #ec4899, #be185d); width: ${moduleProgress}%; transition: width 0.5s ease;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #0ea5e9;">
+          <h3 style="color: #0369a1; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+            <span style="margin-right: 10px; color: #0369a1;">${getIconSVG('star', 24, '#0369a1')}</span> Succès débloqués
+          </h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            ${progressData.achievements.length > 0 ?
+              progressData.achievements.slice(0, 4).map(achievement => `
+                <div style="background: white; padding: 15px; border-radius: 10px; display: flex; align-items: center; gap: 10px;">
+                  <div style="font-size: 24px;">${achievement.icon}</div>
+                  <div>
+                    <div style="font-weight: bold; color: #374151; font-size: 14px;">${achievement.title}</div>
+                    <div style="color: #6b7280; font-size: 12px;">${new Date(achievement.unlockedAt).toLocaleDateString()}</div>
+                  </div>
+                </div>
+              `).join('') :
+              `<div style="grid-column: 1 / -1; text-align: center; color: #6b7280; padding: 20px;">
+                <div style="margin-bottom: 10px;">${getIconSVG('trophy', 40, '#d1d5db')}</div>
+                <div>Continuez vos efforts pour débloquer vos premiers succès !</div>
+              </div>`
+            }
+          </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 6px solid #22c55e;">
+          <h3 style="color: #15803d; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+            <span style="margin-right: 10px; color: #15803d;">${getIconSVG('target', 24, '#15803d')}</span> Recommandations personnalisées
+          </h3>
+          <div style="space-y: 12px;">
+            ${progressData.breathingSessions < 5 ? `
+              <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;">
+                <div style="color: #15803d; font-weight: bold; font-size: 14px;">🫁 Développez votre pratique respiratoire</div>
+                <div style="color: #166534; font-size: 12px;">Essayez de pratiquer 5 minutes de respiration chaque matin.</div>
+              </div>
+            ` : ''}
+            ${progressData.relaxationSessions < 3 ? `
+              <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;">
+                <div style="color: #15803d; font-weight: bold; font-size: 14px;">🧘 Explorez la relaxation</div>
+                <div style="color: #166534; font-size: 12px;">Les techniques de relaxation progressive peuvent compléter votre pratique.</div>
+              </div>
+            ` : ''}
+            ${moduleProgress < 100 ? `
+              <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;">
+                <div style="color: #15803d; font-weight: bold; font-size: 14px;">📚 Continuez le module</div>
+                <div style="color: #166534; font-size: 12px;">Il vous reste encore des sections à explorer pour compléter votre formation.</div>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 20px; border-top: 2px dashed #d1d5db; margin-top: 30px;">
+          <div style="margin-bottom: 15px; font-size: 16px; color: #6b7280;">
+            Rapport généré automatiquement le ${date}
+          </div>
+          <div style="margin-top: 15px; text-align: center;">
+            <strong style="color: #166734; font-size: 14px;">FIDUCIAL FPSG</strong>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(tempDiv);
+
+    try {
+      // Convert HTML to canvas
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: "#ffffff"
+      });
+
+      // Create PDF
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4"
+      });
+
+      const imgData = canvas.toDataURL("image/png");
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+
+      let position = 0;
+
+      // Add image to PDF (handle multiple pages if needed)
+      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      // Download PDF
+      pdf.save(`rapport-progression-fiducial-${date.replace(/\//g, "-")}.pdf`);
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      // Fallback to simple text download
+      const report = {
+        date: date,
+        moduleProgress: `${moduleProgress}%`,
+        completedSections: progressData.completedSections,
+        practiceStats: {
+          breathingSessions: progressData.breathingSessions,
+          relaxationSessions: progressData.relaxationSessions,
+          totalPracticeTime: `${progressData.totalPracticeTime} minutes`,
+          practiceStreak: `${progressData.practiceStreak} jours`
+        },
+        achievements: progressData.achievements
+      };
+
+      const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `rapport-progression-${date.replace(/\//g, "-")}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } finally {
+      // Clean up
+      document.body.removeChild(tempDiv);
+    }
   };
 
   const getCategoryIcon = (category: string) => {
