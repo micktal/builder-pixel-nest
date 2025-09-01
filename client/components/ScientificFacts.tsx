@@ -148,7 +148,7 @@ const scientificFacts: ScientificFact[] = [
     shortText:
       "Une minute de respiration profonde peut réduire significativement la fréquence cardiaque et la tension artérielle.",
     fullText:
-      "La respiration diaphragmatique active le nerf vague, déclenchant la réponse parasympathique. En 60 à 90 secondes, elle peut réduire le rythme cardiaque de 10-15 bpm et la tension artérielle de 5-10 mmHg, tout en diminuant le cortisol de 15-25%. Cette technique augmente la variabilité de la fréquence cardiaque, marqueur de résilience au stress.",
+      "La respiration diaphragmatique active le nerf vague, d��clenchant la réponse parasympathique. En 60 à 90 secondes, elle peut réduire le rythme cardiaque de 10-15 bpm et la tension artérielle de 5-10 mmHg, tout en diminuant le cortisol de 15-25%. Cette technique augmente la variabilité de la fréquence cardiaque, marqueur de résilience au stress.",
     source: "Jerath et al., 2015 - Medical Hypotheses",
     detailedSource: {
       authors: "Jerath R, Edry JW, Barnes VA, Jerath V",
@@ -381,57 +381,6 @@ export default function ScientificFacts() {
                         {fact.fullText}
                       </p>
 
-                      <div className="bg-white/70 backdrop-blur-sm p-4 rounded-lg border border-gray-200/50">
-                        <div className="space-y-3">
-                          <div className="flex items-start space-x-2">
-                            <ExternalLink className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                            <div className="flex-1">
-                              <p className="text-xs font-semibold text-blue-800 mb-1">
-                                Source scientifique :
-                              </p>
-                              <p className="text-xs text-blue-700 font-medium">
-                                {fact.detailedSource.authors} ({fact.detailedSource.year})
-                              </p>
-                              <p className="text-xs text-blue-600 italic">
-                                {fact.detailedSource.title}
-                              </p>
-                              <p className="text-xs text-blue-600">
-                                {fact.detailedSource.journal}
-                                {fact.detailedSource.volume && `, ${fact.detailedSource.volume}`}
-                                {fact.detailedSource.pages && `, ${fact.detailedSource.pages}`}
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* DOI and PMID links */}
-                          <div className="flex flex-wrap gap-2 pt-2 border-t border-blue-100">
-                            {fact.detailedSource.doi && (
-                              <a
-                                href={`https://doi.org/${fact.detailedSource.doi}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 underline"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <Link className="w-3 h-3" />
-                                DOI: {fact.detailedSource.doi}
-                              </a>
-                            )}
-                            {fact.detailedSource.pmid && (
-                              <a
-                                href={`https://pubmed.ncbi.nlm.nih.gov/${fact.detailedSource.pmid}/`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 underline"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <Search className="w-3 h-3" />
-                                PubMed: {fact.detailedSource.pmid}
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
 
