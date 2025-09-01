@@ -241,6 +241,153 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Outils pratiques Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Outils pratiques
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Passez de la théorie à la pratique avec nos outils interactifs de gestion du stress
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {/* Exercices de respiration */}
+            <Card className="border-2 hover:border-blue-300 transition-all duration-300 hover:shadow-2xl group cursor-pointer" onClick={() => navigateToSection('breathing')}>
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Wind className="w-8 h-8 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl font-semibold text-gray-900">Respiration guidée</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  4 techniques interactives avec timer visuel pour maîtriser votre respiration.
+                </p>
+                <div className="flex flex-wrap gap-1 justify-center mb-4">
+                  <Badge variant="outline" className="text-xs">Respiration carrée</Badge>
+                  <Badge variant="outline" className="text-xs">Cohérence cardiaque</Badge>
+                  <Badge variant="outline" className="text-xs">4-7-8</Badge>
+                </div>
+                <Button className="w-full group-hover:bg-blue-600" size="sm">
+                  <Play className="w-4 h-4 mr-2" />
+                  Commencer
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Techniques de relaxation */}
+            <Card className="border-2 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl group cursor-pointer" onClick={() => navigateToSection('relaxation')}>
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Brain className="w-8 h-8 text-purple-600" />
+                </div>
+                <CardTitle className="text-xl font-semibold text-gray-900">Relaxation guidée</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  Séances de relaxation progressive, mindfulness et visualisation.
+                </p>
+                <div className="flex flex-wrap gap-1 justify-center mb-4">
+                  <Badge variant="outline" className="text-xs">PMR</Badge>
+                  <Badge variant="outline" className="text-xs">Scan corporel</Badge>
+                  <Badge variant="outline" className="text-xs">Grounding</Badge>
+                </div>
+                <Button className="w-full group-hover:bg-purple-600" size="sm">
+                  <Activity className="w-4 h-4 mr-2" />
+                  Explorer
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Détection des signaux */}
+            <Card className="border-2 hover:border-orange-300 transition-all duration-300 hover:shadow-2xl group cursor-pointer" onClick={() => navigateToSection('signals')}>
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-8 h-8 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl font-semibold text-gray-900">Signaux d'alarme</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  Apprenez à détecter vos signaux personnels de stress en amont.
+                </p>
+                <div className="flex flex-wrap gap-1 justify-center mb-4">
+                  <Badge variant="outline" className="text-xs">Auto-évaluation</Badge>
+                  <Badge variant="outline" className="text-xs">Suivi quotidien</Badge>
+                  <Badge variant="outline" className="text-xs">Plan d'action</Badge>
+                </div>
+                <Button className="w-full group-hover:bg-orange-600" size="sm">
+                  <AlertCircle className="w-4 h-4 mr-2" />
+                  Découvrir
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Suivi de progression */}
+            <Card className="border-2 hover:border-green-300 transition-all duration-300 hover:shadow-2xl group cursor-pointer" onClick={() => navigateToSection('progress')}>
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-8 h-8 text-green-600" />
+                </div>
+                <CardTitle className="text-xl font-semibold text-gray-900">Ma progression</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  Suivez vos progrès, définissez des objectifs et célébrez vos succès.
+                </p>
+                <div className="flex flex-wrap gap-1 justify-center mb-4">
+                  <Badge variant="outline" className="text-xs">Statistiques</Badge>
+                  <Badge variant="outline" className="text-xs">Objectifs</Badge>
+                  <Badge variant="outline" className="text-xs">Succès</Badge>
+                </div>
+                <Button className="w-full group-hover:bg-green-600" size="sm">
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  Accéder
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Appel à l'action */}
+          <div className="text-center">
+            <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-0 max-w-2xl mx-auto">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-4">Prêt à maîtriser votre stress ?</h3>
+                <p className="text-indigo-100 mb-6">
+                  Commencez par identifier vos signaux personnels, puis pratiquez les techniques qui vous conviennent le mieux.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button
+                    onClick={() => navigateToSection('signals')}
+                    variant="outline"
+                    className="bg-white text-indigo-600 hover:bg-indigo-50 border-white"
+                  >
+                    1. Identifier mes signaux
+                  </Button>
+                  <Button
+                    onClick={() => navigateToSection('breathing')}
+                    variant="outline"
+                    className="bg-white text-indigo-600 hover:bg-indigo-50 border-white"
+                  >
+                    2. Pratiquer la respiration
+                  </Button>
+                  <Button
+                    onClick={() => navigateToSection('progress')}
+                    variant="outline"
+                    className="bg-white text-indigo-600 hover:bg-indigo-50 border-white"
+                  >
+                    3. Suivre mes progrès
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
