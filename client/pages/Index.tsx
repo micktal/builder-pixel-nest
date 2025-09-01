@@ -93,17 +93,27 @@ export default function Index() {
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-purple-500/5"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-              <span style={{color: "rgb(144, 19, 254)"}}>Module 1 –</span>{" "}
-              <span style={{color: "rgb(144, 19, 254)"}}>
-                Comprendre le stress
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Le stress est un signal, pas une condamnation. Apprenez à
-              l'écouter avant qu'il ne crie.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+                <span style={{color: "rgb(144, 19, 254)"}}>Module 1 –</span>{" "}
+                <span style={{color: "rgb(144, 19, 254)"}}>
+                  Comprendre le stress
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+                Le stress est un signal, pas une condamnation. Apprenez à
+                l'écouter avant qu'il ne crie.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.pexels.com/photos/9162030/pexels-photo-9162030.jpeg"
+                alt="Illustration cerveau et cœur symbolisant logique et émotion"
+                className="w-full h-96 object-cover rounded-2xl shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl"></div>
+            </div>
           </div>
         </div>
       </section>
