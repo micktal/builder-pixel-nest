@@ -612,7 +612,7 @@ export default function StressSelfAssessmentSection() {
                   Revoir mes réponses
                 </Button>
                 <Button className="flex-1 bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white font-semibold shadow-lg transform transition-transform hover:scale-105">
-                  🚀 Continuer le module
+                  Continuer le module
                 </Button>
               </div>
             </CardContent>
