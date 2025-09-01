@@ -355,7 +355,7 @@ export default function Index() {
           <div className="text-center">
             <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-0 max-w-2xl mx-auto">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Prêt à maîtriser votre stress ?</h3>
+                <h3 className="text-2xl font-bold mb-4">Pr��t à maîtriser votre stress ?</h3>
                 <p className="text-indigo-100 mb-6">
                   Commencez par identifier vos signaux personnels, puis pratiquez les techniques qui vous conviennent le mieux.
                 </p>
@@ -522,7 +522,39 @@ export default function Index() {
       <ScientificFacts />
 
       {/* Quiz Section */}
-      <QuizSection />
+      <QuizSection navigateToSection={navigateToSection} />
+
+      {/* Appel à l'action après quiz */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="text-white">
+            <h2 className="text-3xl font-bold mb-4">
+              Maintenant, passons à la pratique !
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre les techniques concrètes de gestion du stress.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => navigateToSection('breathing')}
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50 border-0"
+              >
+                <Wind className="w-5 h-5 mr-2" />
+                Exercices de respiration
+              </Button>
+              <Button
+                onClick={() => navigateToSection('relaxation')}
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50 border-0"
+              >
+                <Brain className="w-5 h-5 mr-2" />
+                Techniques de relaxation
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Micro-cas pratiques Section */}
       <MicroCasesSection />
