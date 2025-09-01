@@ -282,16 +282,16 @@ export default function StressEvolutionSection() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="bg-white px-4 py-2 rounded-full text-gray-700 border border-gray-200">
-                💤 Sommeil de qualité
+                Sommeil de qualité
               </span>
               <span className="bg-white px-4 py-2 rounded-full text-gray-700 border border-gray-200">
-                🏃‍♂️ Activité physique
+                Activité physique
               </span>
               <span className="bg-white px-4 py-2 rounded-full text-gray-700 border border-gray-200">
-                🧘‍♀️ Techniques de relaxation
+                Techniques de relaxation
               </span>
               <span className="bg-white px-4 py-2 rounded-full text-gray-700 border border-gray-200">
-                🤝 Support social
+                Support social
               </span>
             </div>
           </div>
