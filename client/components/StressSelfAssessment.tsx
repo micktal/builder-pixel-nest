@@ -598,10 +598,10 @@ export default function StressSelfAssessmentSection() {
                 <Button
                   onClick={handleDownloadResults}
                   variant="outline"
-                  className="flex-1 bg-gradient-to-r from-pink-50 to-purple-50 border-pink-200 text-pink-700 hover:from-pink-100 hover:to-purple-100 hover:border-pink-300"
+                  className="flex-1 bg-gradient-to-r from-green-50 to-blue-50 border-green-200 text-green-700 hover:from-green-100 hover:to-blue-100 hover:border-green-300"
                 >
                   <Download className="w-4 h-4 mr-2" />
-                  📄 Mon Bilan Zen (PDF)
+                  Télécharger le bilan (PDF)
                 </Button>
                 <Button
                   onClick={handleRestart}
