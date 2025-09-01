@@ -266,7 +266,7 @@ export default function Index() {
                   </ul>
                 </div>
                 <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-semibold text-purple-600 mb-2">🌙 Soir</h4>
+                  <h4 className="font-semibold text-purple-600 mb-2">�� Soir</h4>
                   <ul className="text-sm space-y-1 text-gray-600">
                     <li>• Faites le bilan de la journée</li>
                     <li>• Préparez le lendemain</li>
@@ -562,11 +562,12 @@ export default function Index() {
                 <video
                   controls
                   className="w-full h-auto"
+                  src="https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2Ff1a7afc4cabc4495aedf970dab08337b?alt=media&token=5e24e86b-be55-48cd-97d4-9473979e17c9&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec"
                   aria-label="Vidéo sur les stratégies d'adaptation au stress"
                   poster="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg"
                 >
                   <p className="text-gray-600 p-4">
-                    Votre navigateur ne supporte pas les vidéos HTML5. Veuillez mettre à jour votre navigateur.
+                    Votre navigateur ne supporte pas les vidéos HTML5. Vous pouvez télécharger la vidéo en cliquant sur ce lien.
                   </p>
                 </video>
 
