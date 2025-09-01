@@ -357,7 +357,7 @@ function QuizSection() {
     {
       id: 5,
       type: "multiple-choice",
-      question: "Vous ressentez une montée d'anxiété au travail. Quelle est la meilleure stratégie immédiate ?",
+      question: "Vous ressentez une montée d'anxiété au travail. Quelle est la meilleure strat��gie immédiate ?",
       options: [
         "Ignorer la sensation et continuer à travailler",
         "Prendre 3 respirations profondes et identifier la cause",
@@ -478,10 +478,10 @@ function QuizSection() {
             />
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Quiz — Comprendre le stress
+            Quiz — Maîtrise du stress
           </h2>
           <p className="text-lg text-gray-600">
-            Testez vos connaissances avec ces questions Vrai/Faux
+            Testez vos connaissances théoriques et pratiques sur la gestion du stress
           </p>
         </div>
 
@@ -560,61 +560,197 @@ function QuizSection() {
 
               <CardContent>
                 {!showFeedback[question.id] ? (
-                  <div className="flex gap-4 justify-center">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="px-8 py-3 bg-green-50 border-green-200 text-green-700 hover:bg-green-100 hover:border-green-300"
-                      onClick={() => handleAnswer(question.id, true)}
-                    >
-                      <Check className="w-4 h-4 mr-2" />
-                      Vrai
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="px-8 py-3 bg-red-50 border-red-200 text-red-700 hover:bg-red-100 hover:border-red-300"
-                      onClick={() => handleAnswer(question.id, false)}
-                    >
-                      <X className="w-4 h-4 mr-2" />
-                      Faux
-                    </Button>
+                  <div>
+                    {/* Questions Vrai/Faux */}
+                    {question.type === "true-false" && (
+                      <div className="flex gap-4 justify-center">
+                        <Button
+                          variant="outline"
+                          size="lg"
+                          className="px-8 py-3 bg-green-50 border-green-200 text-green-700 hover:bg-green-100 hover:border-green-300"
+                          onClick={() => handleAnswer(question.id, true)}
+                        >
+                          <Check className="w-4 h-4 mr-2" />
+                          Vrai
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="lg"
+                          className="px-8 py-3 bg-red-50 border-red-200 text-red-700 hover:bg-red-100 hover:border-red-300"
+                          onClick={() => handleAnswer(question.id, false)}
+                        >
+                          <X className="w-4 h-4 mr-2" />
+                          Faux
+                        </Button>
+                      </div>
+                    )}
+
+                    {/* Questions à choix multiples et scénarios */}
+                    {(question.type === "multiple-choice" || question.type === "scenario") && (
+                      <div className="space-y-3">
+                        {question.options?.map((option, index) => (
+                          <Button
+                            key={index}
+                            variant="outline"
+                            className="w-full text-left justify-start h-auto p-4 text-gray-700 hover:bg-primary/5 hover:border-primary/30"
+                            onClick={() => handleAnswer(question.id, index)}
+                          >
+                            <span className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-3 text-sm font-medium bg-white">
+                              {String.fromCharCode(65 + index)}
+                            </span>
+                            <span className="text-sm leading-relaxed text-left">
+                              {option}
+                            </span>
+                          </Button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ) : (
-                  <div
-                    className={`p-4 rounded-lg ${
-                      userAnswers[question.id] === question.answer
-                        ? "bg-green-50 border border-green-200"
-                        : "bg-red-50 border border-red-200"
-                    }`}
-                  >
-                    <div className="flex items-center mb-2">
-                      {userAnswers[question.id] === question.answer ? (
-                        <Check className="w-5 h-5 text-green-600 mr-2" />
-                      ) : (
-                        <X className="w-5 h-5 text-red-600 mr-2" />
-                      )}
-                      <span
-                        className={`font-semibold ${
+                  <div className="space-y-4">
+                    {/* Affichage des résultats pour questions Vrai/Faux */}
+                    {question.type === "true-false" && (
+                      <div
+                        className={`p-4 rounded-lg ${
                           userAnswers[question.id] === question.answer
-                            ? "text-green-800"
-                            : "text-red-800"
+                            ? "bg-green-50 border border-green-200"
+                            : "bg-red-50 border border-red-200"
                         }`}
                       >
-                        {userAnswers[question.id] === question.answer
-                          ? "Correct !"
-                          : "Incorrect"}
-                      </span>
-                    </div>
-                    <p
-                      className={`${
-                        userAnswers[question.id] === question.answer
-                          ? "text-green-700"
-                          : "text-red-700"
-                      }`}
-                    >
-                      {question.explanation}
-                    </p>
+                        <div className="flex items-center mb-2">
+                          {userAnswers[question.id] === question.answer ? (
+                            <Check className="w-5 h-5 text-green-600 mr-2" />
+                          ) : (
+                            <X className="w-5 h-5 text-red-600 mr-2" />
+                          )}
+                          <span
+                            className={`font-semibold ${
+                              userAnswers[question.id] === question.answer
+                                ? "text-green-800"
+                                : "text-red-800"
+                            }`}
+                          >
+                            {userAnswers[question.id] === question.answer
+                              ? "Correct !"
+                              : "Incorrect"}
+                          </span>
+                        </div>
+                        <p
+                          className={`mb-3 ${
+                            userAnswers[question.id] === question.answer
+                              ? "text-green-700"
+                              : "text-red-700"
+                          }`}
+                        >
+                          {question.explanation}
+                        </p>
+                        {question.practicalTip && (
+                          <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                            <p className="text-sm text-blue-800">
+                              <Lightbulb className="w-4 h-4 inline mr-1" />
+                              <strong>Conseil pratique :</strong> {question.practicalTip}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Affichage des résultats pour questions à choix multiples */}
+                    {(question.type === "multiple-choice" || question.type === "scenario") && (
+                      <div className="space-y-3">
+                        {question.options?.map((option, index) => {
+                          const isSelected = userAnswers[question.id] === index;
+                          const isCorrect = question.correctAnswer === index;
+
+                          return (
+                            <div
+                              key={index}
+                              className={`p-4 rounded-lg border-2 ${
+                                isSelected
+                                  ? isCorrect
+                                    ? "bg-green-50 border-green-200"
+                                    : "bg-red-50 border-red-200"
+                                  : isCorrect
+                                    ? "bg-blue-50 border-blue-200"
+                                    : "bg-gray-50 border-gray-200"
+                              }`}
+                            >
+                              <div className="flex items-start">
+                                <div className="flex-shrink-0 mr-3 mt-0.5">
+                                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium ${
+                                    isSelected
+                                      ? isCorrect
+                                        ? "bg-green-600 text-white"
+                                        : "bg-red-600 text-white"
+                                      : isCorrect
+                                        ? "bg-blue-600 text-white"
+                                        : "bg-gray-300 text-gray-600"
+                                  }`}>
+                                    {String.fromCharCode(65 + index)}
+                                  </span>
+                                </div>
+                                <div className="flex-1">
+                                  <p
+                                    className={`text-sm mb-1 ${
+                                      isSelected
+                                        ? isCorrect
+                                          ? "text-green-800"
+                                          : "text-red-800"
+                                        : isCorrect
+                                          ? "text-blue-800"
+                                          : "text-gray-700"
+                                    }`}
+                                  >
+                                    {option}
+                                  </p>
+                                  {(isSelected || isCorrect) && (
+                                    <div className="flex items-center mt-2">
+                                      {isSelected && (
+                                        <div className="flex items-center mr-3">
+                                          {isCorrect ? (
+                                            <Check className="w-4 h-4 text-green-600 mr-1" />
+                                          ) : (
+                                            <X className="w-4 h-4 text-red-600 mr-1" />
+                                          )}
+                                          <span className={`text-xs font-medium ${
+                                            isCorrect ? "text-green-600" : "text-red-600"
+                                          }`}>
+                                            {isCorrect ? "Votre réponse (correct)" : "Votre réponse (incorrect)"}
+                                          </span>
+                                        </div>
+                                      )}
+                                      {!isSelected && isCorrect && (
+                                        <div className="flex items-center">
+                                          <CheckCircle className="w-4 h-4 text-blue-600 mr-1" />
+                                          <span className="text-xs font-medium text-blue-600">
+                                            Bonne réponse
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+
+                        {/* Explication */}
+                        <div className="bg-white p-4 rounded-lg border border-gray-200">
+                          <p className="text-gray-700 mb-3">
+                            <strong>Explication :</strong> {question.explanation}
+                          </p>
+                          {question.practicalTip && (
+                            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                              <p className="text-sm text-blue-800">
+                                <Lightbulb className="w-4 h-4 inline mr-1" />
+                                <strong>Conseil pratique :</strong> {question.practicalTip}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </CardContent>
