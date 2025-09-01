@@ -12,6 +12,8 @@ import {
   AlertTriangle,
   Clock,
 } from "lucide-react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 interface Question {
   id: string;
@@ -77,7 +79,7 @@ const questions: Question[] = [
   },
   {
     id: "q10",
-    text: 'Je me surprends à penser "je n\'y arriverai pas".',
+    text: 'Je me surprends �� penser "je n\'y arriverai pas".',
     dimension: "cognitive",
   },
 ];
