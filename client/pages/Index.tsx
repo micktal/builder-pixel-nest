@@ -819,7 +819,7 @@ export default function Index() {
               Passons à l'organisation pratique !
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre �� organiser votre quotidien pour prévenir le stress.
+              Vous avez acquis les connaissances théoriques. Il est temps d'apprendre à organiser votre quotidien pour prévenir le stress.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
