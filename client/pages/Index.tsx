@@ -294,26 +294,26 @@ export default function Index() {
               </CardContent>
             </Card>
 
-            {/* Techniques de relaxation */}
-            <Card className="border-2 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl group cursor-pointer" onClick={() => navigateToSection('relaxation')}>
+            {/* Gestion du temps et priorités */}
+            <Card className="border-2 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl group cursor-pointer" onClick={() => navigateToSection('timemanagement')}>
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Brain className="w-8 h-8 text-purple-600" />
+                  <Clock className="w-8 h-8 text-purple-600" />
                 </div>
-                <CardTitle className="text-xl font-semibold text-gray-900">Relaxation guidée</CardTitle>
+                <CardTitle className="text-xl font-semibold text-gray-900">Gestion du temps</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  Séances de relaxation progressive, mindfulness et visualisation.
+                  Outils et techniques pour organiser vos priorités et réduire la surcharge.
                 </p>
                 <div className="flex flex-wrap gap-1 justify-center mb-4">
-                  <Badge variant="outline" className="text-xs">PMR</Badge>
-                  <Badge variant="outline" className="text-xs">Scan corporel</Badge>
-                  <Badge variant="outline" className="text-xs">Grounding</Badge>
+                  <Badge variant="outline" className="text-xs">Matrice d'Eisenhower</Badge>
+                  <Badge variant="outline" className="text-xs">Pomodoro</Badge>
+                  <Badge variant="outline" className="text-xs">Planning anti-stress</Badge>
                 </div>
                 <Button className="w-full group-hover:bg-purple-600" size="sm">
-                  <Activity className="w-4 h-4 mr-2" />
-                  Explorer
+                  <Clock className="w-4 h-4 mr-2" />
+                  Organiser
                 </Button>
               </CardContent>
             </Card>
